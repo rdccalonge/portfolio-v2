@@ -1,8 +1,8 @@
 import { readFile, writeFile, mkdir, readdir, cp, rm, stat } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { compile } from 'json-schema-to-typescript';
-import { publicContent, schema } from './content.mjs';
-const data = publicContent(JSON.parse(await readFile('content/portfolio.json', 'utf8')));
+import { publicContent, schema, readPortfolio } from './content.mjs';
+const data = publicContent(readPortfolio());
 await mkdir('.local', { recursive: true });
 await writeFile('.local/public-content.json', JSON.stringify(data, null, 2));
 const assets = resolve('.local/site-assets');

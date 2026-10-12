@@ -27,6 +27,12 @@ public sealed class ContentStore(string root)
         if (!result.IsValid) throw new InvalidOperationException("Invalid fields. Check required names, slugs, links, lengths, and section selections.");
         if (doc.Projects.Select(p => p.Id).Distinct().Count() != doc.Projects.Count) throw new InvalidOperationException("Project slugs must be unique.");
         if (doc.Cv.ProjectIds.Any(id => !doc.Projects.Any(p => p.Id == id))) throw new InvalidOperationException("The CV refers to an unknown project.");
+        if (doc.Layers is not null)
+        {
+            var names = doc.Layers.Select(layer => layer.Name).ToHashSet(StringComparer.Ordinal);
+            if (doc.Layers.Select(layer => layer.Name).Distinct(StringComparer.OrdinalIgnoreCase).Count() != doc.Layers.Count) throw new InvalidOperationException("Layer names must be unique.");
+            if (doc.Skills.Any(skill => !names.Contains(skill.Layer)) || doc.Projects.Any(project => project.Layers.Any(layer => !names.Contains(layer)))) throw new InvalidOperationException("A project or skill refers to an unknown layer.");
+        }
     }
     public static void AtomicWrite(string path, string text)
     {

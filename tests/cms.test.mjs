@@ -8,14 +8,19 @@ const fields = config.content[0].fields;
 const field = name => fields.find(f => f.name === name);
 test('CMS single-file editor matches the canonical content contract', () => {
   assert.equal(config.content[0].path, 'content/portfolio.json'); assert.equal(config.content[0].format, 'json');
-  assert.deepEqual(fields.map(f => f.name).sort(), Object.keys(schema.properties).sort());
+  assert.deepEqual(fields.map(f => f.name).sort(), Object.keys(schema.properties).filter(name => name !== 'layers').sort());
   assert.deepEqual(field('profile').fields.map(f => f.name).sort(), Object.keys(schema.properties.profile.properties).sort());
   assert.deepEqual(field('projects').fields.map(f => f.name).sort(), Object.keys(schema.definitions.Project.properties).sort());
   assert.deepEqual(config.components['career-entry'].fields.map(f => f.name).sort(), Object.keys(schema.definitions.Entry.properties).sort());
 });
 test('CMS media, layer choices, and CV options match build validation', () => {
   assert.equal(config.media.input, 'public/media'); assert.equal(config.media.output, '/media'); assert.equal(config.media.rename, 'random');
-  assert.deepEqual(field('projects').fields.find(f => f.name === 'layers').options.values, schema.definitions.Layer.enum);
+  const layers = config.content.find(entry => entry.name === 'layers');
+  assert.equal(layers.type, 'collection'); assert.equal(layers.path, 'content/layers'); assert.equal(layers.view.primary, 'name');
+  assert.deepEqual(layers.fields.map(f => f.name).sort(), Object.keys(schema.definitions.LayerDefinition.properties).sort());
+  for (const reference of [field('projects').fields.find(f => f.name === 'layers'), field('skills').fields.find(f => f.name === 'layer')]) {
+    assert.equal(reference.type, 'reference'); assert.equal(reference.options.collection, 'layers'); assert.equal(reference.options.value, '{primary}');
+  }
   assert.deepEqual(field('cv').fields.find(f => f.name === 'sections').options.values, schema.properties.cv.properties.sections.items.enum);
   assert(field('cv').fields.find(f => f.name === 'sections').list);
 });

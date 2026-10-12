@@ -126,10 +126,12 @@ content:
               max: 30
           - name: layers
             label: System layers
-            type: select
+            type: reference
             required: true
             options:
-              values: [Frontend, Backend, Data, Cloud]
+              collection: layers
+              value: '{primary}'
+              label: '{primary}'
               multiple: true
               min: 1
           - name: screenshots
@@ -175,10 +177,12 @@ content:
             type: string
             required: true
           - name: layer
-            type: select
+            type: reference
             required: true
             options:
-              values: [Frontend, Backend, Data, Cloud]
+              collection: layers
+              value: '{primary}'
+              label: '{primary}'
       - name: experience
         label: Work experience
         component: career-entry
@@ -206,3 +210,32 @@ content:
             list:
               max: 100
             description: 'Use the exact URL slugs of existing projects. Unpublished projects are excluded automatically. Update this list when deleting a project.'
+  - name: layers
+    label: Layers
+    type: collection
+    path: content/layers
+    format: json
+    filename: '{primary}.json'
+    subfolders: false
+    view:
+      primary: name
+      sort: order
+      order: asc
+    fields:
+      - name: name
+        label: Layer name
+        type: string
+        required: true
+        description: 'For example Mobile, DevOps, or AI / Automation. Names must be unique. Update project and skill assignments before renaming or deleting a layer.'
+        pattern: '^\S(?:.*\S)?$'
+      - name: description
+        label: Short description
+        type: text
+      - name: icon
+        label: Icon character
+        type: string
+        description: 'A short symbol or emoji, for example 📱. Leave blank for a diamond.'
+      - name: order
+        label: Display order
+        type: number
+        description: 'Lower numbers appear first. Existing layers use 10, 20, 30, and 40.'

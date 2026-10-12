@@ -48,6 +48,13 @@ Reorder list items in the editor. Turn Published off to archive a project; its p
 
 ## Profile and CV forms
 
+### Add a new layer
+
+In Pages CMS, open **Layers** in the sidebar and add an entry. Set its **Layer name** (for example `Mobile`), short description, icon/emoji, and display order, then Save. Lower order numbers appear first. Open **Portfolio content** afterward: the new layer is available in **Projects → System layers** and **Skills → Layer**. Save your assignments to update the website and CV. Refresh the CMS if its selector still shows the previous list.
+
+Layer names are identifiers. To rename one safely, create the replacement, update all project/skill assignments, then delete the old entry. Builds reject duplicate names or deleting a layer that is still referenced; the last successfully deployed site stays live.
+
+
 - **Profile and photo** edits your photo and public contacts. The current photo is an optimized copy of the old portfolio's `images/pic01.jpg`.
 - **Work experience / Education** adds entries. Leave unverified dates blank. Dates use `YYYY` or `YYYY-MM`; End also accepts `Present`.
 - **Skills** populates the systems map. **CV export settings** selects/reorders sections and project slugs and sets a public CV summary.

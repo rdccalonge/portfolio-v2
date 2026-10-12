@@ -3,6 +3,7 @@
   "required": ["schemaVersion", "profile", "skills", "projects", "experience", "education", "cv"],
   "properties": {
     "schemaVersion": { "const": 1 },
+    "layers": { "type": "array", "maxItems": 30, "items": { "$ref": "#/definitions/LayerDefinition" } },
     "profile": {
       "type": "object", "additionalProperties": false,
       "required": ["name", "role", "summary", "location", "email", "github", "linkedin"],
@@ -31,7 +32,16 @@
     }
   },
   "definitions": {
-    "Layer": { "enum": ["Frontend", "Backend", "Data", "Cloud"] },
+    "Layer": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "^\\S(?:.*\\S)?$" },
+    "LayerDefinition": {
+      "type": "object", "additionalProperties": false, "required": ["name", "description", "icon", "order"],
+      "properties": {
+        "name": { "$ref": "#/definitions/Layer" },
+        "description": { "type": "string", "maxLength": 500 },
+        "icon": { "type": "string", "maxLength": 12 },
+        "order": { "type": "integer", "minimum": 0, "maximum": 999 }
+      }
+    },
     "Skill": {
       "type": "object", "additionalProperties": false, "required": ["name", "layer"],
       "properties": { "name": { "type": "string", "minLength": 1, "maxLength": 80 }, "layer": { "$ref": "#/definitions/Layer" } }

@@ -28,12 +28,12 @@ export class ProjectDetail {
 @Component({ selector: 'app-portfolio-view', imports: [FormsModule, RouterLink, HeroScene, ProjectArt, ProjectDetail, MotionStage], templateUrl: './portfolio-view.html' })
 export class PortfolioView {
   data = input.required<Portfolio>(); preview = input(false); assetBase = input('');
-  query = signal(''); selected = signal<Layer | 'All'>('All');
-  layers: Layer[] = ['Frontend', 'Backend', 'Data', 'Cloud'];
+  query = signal(''); selected = signal<Layer | null>(null);
+  layers = computed(() => this.data().layers ?? []);
   downloads = DOWNLOADS;
   opened = signal<Project | null>(null);
-  visible = computed(() => this.data().projects.filter(p => p.published && (this.selected() === 'All' || p.layers.includes(this.selected() as Layer)) && `${p.title} ${p.category} ${p.technologies.join(' ')}`.toLowerCase().includes(this.query().toLowerCase())).sort((a, b) => Number(b.featured) - Number(a.featured)));
-  choose(layer: Layer | 'All') { this.selected.set(layer); }
+  visible = computed(() => this.data().projects.filter(p => p.published && (this.selected() === null || p.layers.includes(this.selected() as Layer)) && `${p.title} ${p.category} ${p.technologies.join(' ')}`.toLowerCase().includes(this.query().toLowerCase())).sort((a, b) => Number(b.featured) - Number(a.featured)));
+  choose(layer: Layer | null) { this.selected.set(layer); }
   skills(layer: Layer) { return this.data().skills.filter(s => s.layer === layer); }
   setQuery(event: Event) { this.query.set((event.target as HTMLInputElement).value); }
 }

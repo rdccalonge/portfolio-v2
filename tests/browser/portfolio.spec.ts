@@ -30,3 +30,12 @@ test('reduced motion stays readable and CV downloads exist', async ({ page, requ
   const pdf = await request.get('downloads/reni-calonge-cv.pdf'); expect(pdf.status()).toBe(200); expect((await pdf.body()).subarray(0, 4).toString()).toBe('%PDF');
   const word = await request.get('downloads/reni-calonge-cv.docx'); expect(word.status()).toBe(200); expect((await word.body()).subarray(0, 2).toString()).toBe('PK');
 });
+test('CMS layer collection drives system cards and project filters', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto('./');
+  await expect(page.locator('.system-node')).toHaveCount(content.layers.length);
+  for (const layer of content.layers) {
+    await expect(page.locator('.systems-map').getByRole('heading', { name: layer.name, exact: true })).toBeVisible();
+    await page.locator('.filter-tabs').getByRole('button', { name: layer.name, exact: true }).click();
+    await expect(page.locator('.project-card')).toHaveCount(content.projects.filter((project: any) => project.layers.includes(layer.name)).length);
+  }
+});

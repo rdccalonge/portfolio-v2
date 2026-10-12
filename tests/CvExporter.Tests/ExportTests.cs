@@ -49,4 +49,10 @@ public class ExportTests
         var pdf = await new CvService().Pdf(new(Seed()));
         Assert.True(pdf.Length > 5000); Assert.Equal("%PDF", System.Text.Encoding.ASCII.GetString(pdf, 0, 4));
     }
+    [Fact]
+    public void CustomLayerSkillsAreIncludedInCv()
+    {
+        var data = Seed(); data.Skills.Add(new("PowerApps", "Mobile"));
+        Assert.Contains(CvService.Blocks(new(data)), block => block.Text == "Mobile: PowerApps");
+    }
 }

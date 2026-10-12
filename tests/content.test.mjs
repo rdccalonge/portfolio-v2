@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { publicContent, validateContent, normalizeContent } from '../scripts/content.mjs';
+import { publicContent, validateContent, normalizeContent, readPortfolio } from '../scripts/content.mjs';
 const seed = JSON.parse(readFileSync(new URL('./fixtures/portfolio.json', import.meta.url)));
 const copy = () => structuredClone(seed);
-test('current CMS document normalizes and validates independently of fixtures', () => { publicContent(JSON.parse(readFileSync(new URL('../content/portfolio.json', import.meta.url)))); });
+test('current CMS document and layer collection validate independently of fixtures', () => { publicContent(readPortfolio()); });
 test('canonical content validates and publication preserves all seed projects', () => { validateContent(copy()); assert.equal(publicContent(seed).projects.length, 6); });
 test('minimal new CMS project defaults unpublished; no missing template data', () => {
   const data = copy(); data.projects.push({ id: 'new-system', title: 'New system', layers: ['Backend'] });
@@ -40,4 +40,18 @@ test('unsafe media and contact links are rejected', () => {
 test('section selection and project order are preserved', () => {
   const data = copy(); data.cv.sections = ['projects', 'summary']; data.cv.projectIds.reverse(); const view = publicContent(data);
   assert.deepEqual(view.cv.sections, data.cv.sections); assert.deepEqual(view.cv.projectIds, data.cv.projectIds);
+});
+test('new CMS layer supports projects, skills, description, icon, and order', () => {
+  const data = normalizeContent(copy()); data.layers.push({ name: 'Mobile', description: 'Applications on the go.', icon: '📱', order: 9 });
+  data.projects[0].layers.push('Mobile'); data.skills.push({ name: 'PowerApps', layer: 'Mobile' });
+  const view = publicContent(data); assert(view.projects[0].layers.includes('Mobile')); assert.equal(view.skills.at(-1).layer, 'Mobile');
+  assert(view.layers.some(layer => layer.name === 'Mobile' && layer.icon === '📱'));
+});
+test('duplicate layers and deleting a referenced layer block deployment', () => {
+  const data = normalizeContent(copy()); data.layers.push({ name: 'frontend', description: '', icon: '', order: 1 }); assert.throws(() => publicContent(data), /unique/);
+  data.layers.pop(); data.layers = data.layers.filter(layer => layer.name !== 'Frontend'); assert.throws(() => publicContent(data), /Unknown layers/);
+});
+test('an unassigned custom layer can be added with blank optional fields', () => {
+  const data = normalizeContent(copy()); data.layers.push({ name: 'AI', description: null, icon: null, order: null });
+  const layer = publicContent(data).layers.find(layer => layer.name === 'AI'); assert.equal(layer.icon, '◇'); assert.equal(layer.order, 0);
 });
