@@ -1,26 +1,192 @@
 {
   "schemaVersion": 1,
   "profile": {
-    "name": "Reni Calonge", "role": "Full-stack developer",
+    "name": "Reni Calonge",
+    "role": "Full-stack developer",
     "summary": "I build across the stack—from interfaces and business logic to databases and cloud services. My experience spans C#, Blazor, Angular, SQL, Azure, and the end-to-end delivery of web applications.",
     "photo": "media/reni-calonge.jpg",
-    "location": "", "email": "rdccalonge@gmail.com", "github": "https://github.com/rdccalonge", "linkedin": "https://www.linkedin.com/in/reni-calonge-924457160/"
+    "email": "rdccalonge@gmail.com",
+    "github": "https://github.com/rdccalonge",
+    "linkedin": "https://www.linkedin.com/in/reni-calonge-924457160/"
   },
-  "skills": [
-    { "name": "Angular", "layer": "Frontend" }, { "name": "Blazor", "layer": "Frontend" }, { "name": "JavaScript", "layer": "Frontend" }, { "name": "HTML / SCSS", "layer": "Frontend" },
-    { "name": "C#", "layer": "Backend" }, { "name": "ASP.NET Core", "layer": "Backend" }, { "name": "PHP", "layer": "Backend" }, { "name": "Entity Framework", "layer": "Data" },
-    { "name": "SQL Server", "layer": "Data" }, { "name": "PostgreSQL", "layer": "Data" }, { "name": "MySQL", "layer": "Data" }, { "name": "Dapper", "layer": "Data" },
-    { "name": "Azure", "layer": "Cloud" }, { "name": "Azure Functions", "layer": "Cloud" }, { "name": "Service Bus", "layer": "Cloud" }, { "name": "Azure DevOps", "layer": "Cloud" }
-  ],
   "projects": [
-    { "id": "data-auto-mapper", "title": "Data Auto Mapper", "category": "Developer tooling", "description": "A data mapping project from my C# portfolio.", "problem": "", "contribution": "", "decisions": "", "outcome": "", "technologies": ["C#"], "layers": ["Backend", "Data"], "screenshots": [], "featured": true, "published": true, "accent": "cyan" },
-    { "id": "maritime-portal", "title": "Maritime Customer Portal", "category": "Business applications", "description": "A customer portal project from my C# portfolio.", "problem": "", "contribution": "", "decisions": "", "outcome": "", "technologies": ["C#"], "layers": ["Frontend", "Backend"], "screenshots": [], "featured": true, "published": true, "accent": "violet" },
-    { "id": "parking-platform", "title": "Parking Backend & Admin", "category": "Operations software", "description": "A parking backend service and administration GUI from my existing work collection.", "problem": "", "contribution": "", "decisions": "", "outcome": "", "technologies": ["C#"], "layers": ["Frontend", "Backend"], "screenshots": [], "featured": true, "published": true, "accent": "lime" },
-    { "id": "insurance-app", "title": "Insurance Electronic App", "category": "Business applications", "description": "An electronic application project from my C# work collection.", "problem": "", "contribution": "", "decisions": "", "outcome": "", "technologies": ["C#"], "layers": ["Frontend", "Backend"], "screenshots": [], "featured": false, "published": true, "accent": "orange" },
-    { "id": "ecommerce", "title": "E-commerce / Shopping Cart", "category": "Commerce", "description": "An e-commerce and shopping cart project from my PHP collection.", "problem": "", "contribution": "", "decisions": "", "outcome": "", "technologies": ["PHP"], "layers": ["Frontend", "Backend"], "screenshots": [], "featured": false, "published": true, "accent": "cyan" },
-    { "id": "health-declaration", "title": "Health Declaration", "category": "Low-code applications", "description": "A health declaration project from my PowerApps collection.", "problem": "", "contribution": "", "decisions": "", "outcome": "", "technologies": ["PowerApps"], "layers": ["Frontend"], "screenshots": [], "featured": false, "published": true, "accent": "violet" }
+    {
+      "id": "health-declaration",
+      "title": "Health Declaration",
+      "category": "Low-code applications",
+      "description": "A health declaration project from my PowerApps collection.",
+      "technologies": [
+        "PowerApps"
+      ],
+      "layers": [
+        "Frontend"
+      ],
+      "accent": "violet",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-commerce / Shopping Cart",
+      "category": "Commerce",
+      "description": "An e-commerce and shopping cart project from my PHP collection.",
+      "technologies": [
+        "PHP"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "insurance-app",
+      "title": "Insurance Electronic App",
+      "category": "Business applications",
+      "description": "An electronic application project from my C# work collection.",
+      "technologies": [
+        "C#"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "accent": "orange",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "parking-platform",
+      "title": "Parking Backend & Admin",
+      "category": "Operations software",
+      "description": "A parking backend service and administration GUI from my existing work collection.",
+      "technologies": [
+        "C#"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "accent": "lime",
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": "maritime-portal",
+      "title": "Maritime Customer Portal",
+      "category": "Business applications",
+      "description": "A customer portal project from my C# portfolio.",
+      "technologies": [
+        "C#"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "accent": "violet",
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": "data-auto-mapper",
+      "title": "Data Auto Mapper",
+      "category": "Developer tooling",
+      "description": "A data mapping project from my C# portfolio.",
+      "technologies": [
+        "C#"
+      ],
+      "layers": [
+        "Backend",
+        "Data"
+      ],
+      "accent": "cyan",
+      "featured": true,
+      "published": true
+    }
   ],
-  "experience": [],
-  "education": [{ "title": "Bachelor of Science in Information Technology", "organization": "Trinity University of Asia", "start": "", "end": "", "details": "", "published": true }],
-  "cv": { "summary": "", "sections": ["summary", "skills", "experience", "education", "projects"], "projectIds": ["data-auto-mapper", "maritime-portal", "parking-platform"] }
+  "skills": [
+    {
+      "name": "Angular",
+      "layer": "Frontend"
+    },
+    {
+      "name": "Blazor",
+      "layer": "Frontend"
+    },
+    {
+      "name": "C#",
+      "layer": "Backend"
+    },
+    {
+      "name": "JavaScript",
+      "layer": "Frontend"
+    },
+    {
+      "name": "HTML / SCSS",
+      "layer": "Frontend"
+    },
+    {
+      "name": "ASP.NET Core",
+      "layer": "Backend"
+    },
+    {
+      "name": "Entity Framework",
+      "layer": "Data"
+    },
+    {
+      "name": "SQL Server",
+      "layer": "Data"
+    },
+    {
+      "name": "PostgreSQL",
+      "layer": "Data"
+    },
+    {
+      "name": "MySQL",
+      "layer": "Data"
+    },
+    {
+      "name": "Dapper",
+      "layer": "Data"
+    },
+    {
+      "name": "Azure",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Azure Functions",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Service Bus",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Azure DevOps",
+      "layer": "Cloud"
+    }
+  ],
+  "education": [
+    {
+      "title": "Bachelor of Science in Information Technology",
+      "organization": "Trinity University of Asia",
+      "published": true
+    }
+  ],
+  "cv": {
+    "sections": [
+      "summary",
+      "skills",
+      "experience",
+      "education",
+      "projects"
+    ],
+    "projectIds": [
+      "data-auto-mapper",
+      "maritime-portal",
+      "parking-platform"
+    ]
+  }
 }
