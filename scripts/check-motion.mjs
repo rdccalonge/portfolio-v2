@@ -1,0 +1,36 @@
+import { chromium, expect } from '@playwright/test';
+import { mkdir } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const browser = await chromium.launch({ executablePath: process.env.PORTFOLIO_BROWSER || 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
+await mkdir('.local', { recursive: true });
+try {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  const errors = []; page.on('pageerror', error => errors.push(error.message));
+  await page.goto('http://127.0.0.1:4200/', { waitUntil: 'networkidle' });
+  await page.locator('.hero-portrait img').waitFor();
+  assert(await page.locator('.hero-portrait img').evaluate(image => image.complete && image.naturalWidth > 0), 'Portrait should load.');
+  assert.match(await page.locator('h1').innerText(), /Reni Calonge/);
+  await expect(page.locator('.motion-stage')).toHaveAttribute('data-motion', 'running');
+  await page.getByRole('button', { name: 'Pause animations' }).click();
+  await expect(page.locator('.motion-stage')).toHaveAttribute('data-motion', 'paused');
+  await page.reload({ waitUntil: 'networkidle' });
+  await expect(page.locator('.motion-stage')).toHaveAttribute('data-motion', 'paused');
+  await page.getByRole('button', { name: 'Resume animations' }).click();
+  await expect.poll(() => page.locator('.hero-intro').evaluate(element => getComputedStyle(element).opacity)).toBe('1');
+  await page.screenshot({ path: '.local/motion-desktop.png' });
+  await page.getByRole('textbox', { name: 'Search projects' }).fill('maritime');
+  assert.equal(await page.locator('.project-card').count(), 1);
+  await page.getByRole('textbox', { name: 'Search projects' }).fill('');
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('http://127.0.0.1:4200/', { waitUntil: 'networkidle' });
+  await expect.poll(() => page.locator('.hero-intro').evaluate(element => getComputedStyle(element).opacity)).toBe('1');
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Mobile must not overflow horizontally.');
+  await page.screenshot({ path: '.local/motion-mobile.png' });
+  const reduced = await browser.newPage({ reducedMotion: 'reduce', viewport: { width: 390, height: 844 } });
+  await reduced.goto('http://127.0.0.1:4200/', { waitUntil: 'networkidle' });
+  await expect(reduced.locator('.motion-stage')).toHaveAttribute('data-motion', 'paused');
+  assert.equal(await reduced.locator('.marquee-track').evaluate(element => getComputedStyle(element).animationName), 'none');
+  assert(await reduced.locator('h1').isVisible());
+  assert.deepEqual(errors, [], 'No browser errors.');
+  console.log('Portrait, motion controls, persistence, project search, mobile overflow, and reduced motion passed.');
+} finally { await browser.close(); }

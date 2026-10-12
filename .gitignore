@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.angular/
+.local/
+**/bin/
+**/obj/
+test-results/
+playwright-report/
+src/generated/
+public/downloads/*.pdf
+public/downloads/*.docx

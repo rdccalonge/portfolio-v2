@@ -1,0 +1,38 @@
+{
+  "name": "reni-portfolio-v2",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare:content": "node scripts/prepare.mjs",
+    "start": "npm run prepare:content && ng serve public --port 4200",
+    "build": "npm run prepare:content && ng build public --base-href /portfolio-v2/ && node scripts/verify-artifact.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "export:public": "npm run prepare:content && dotnet run --project tools/CvExporter -- --export-public",
+    "cms": "node scripts/cms-info.mjs"
+  },
+  "dependencies": {
+    "@angular/common": "22.2.1",
+    "@angular/compiler": "22.2.1",
+    "@angular/core": "22.2.1",
+    "@angular/forms": "22.2.1",
+    "@angular/platform-browser": "22.2.1",
+    "@angular/platform-server": "22.2.1",
+    "@angular/router": "22.2.1",
+    "@angular/ssr": "22.2.1",
+    "rxjs": "~7.8.2",
+    "three": "^0.180.0",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@angular/build": "22.2.1",
+    "@angular/cli": "22.2.1",
+    "@angular/compiler-cli": "22.2.1",
+    "@playwright/test": "^1.55.0",
+    "@types/three": "^0.180.0",
+    "ajv": "^8.17.1",
+    "json-schema-to-typescript": "^15.0.4",
+    "typescript": "~6.0.2",
+    "yaml": "^2.9.1"
+  }
+}

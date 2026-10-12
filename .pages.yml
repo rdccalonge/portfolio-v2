@@ -1,0 +1,208 @@
+# Keep this file at the ROOT of the separate portfolio-v2 GitHub repository.
+media:
+  input: public/media
+  output: /media
+  rename: random
+  extensions: [png, jpg, jpeg, webp]
+
+components:
+  career-entry:
+    type: object
+    list:
+      max: 50
+      collapsible:
+        collapsed: true
+        summary: '{title} — {organization}'
+    fields:
+      - name: title
+        label: Role or qualification
+        type: string
+        required: true
+      - name: organization
+        label: Employer or institution
+        type: string
+      - name: start
+        label: Start date
+        type: string
+        description: 'YYYY or YYYY-MM. Leave blank if not verified.'
+        pattern: '^([0-9]{4}(-[0-9]{2})?)?$'
+      - name: end
+        label: End date
+        type: string
+        description: 'YYYY, YYYY-MM, Present, or blank.'
+        pattern: '^([0-9]{4}(-[0-9]{2})?|Present)?$'
+      - name: details
+        label: Responsibilities and achievements
+        type: text
+      - name: published
+        label: Include on portfolio and CV
+        type: boolean
+
+content:
+  - name: portfolio
+    label: Portfolio content
+    type: file
+    path: content/portfolio.json
+    format: json
+    fields:
+      - name: schemaVersion
+        type: number
+        hidden: true
+        readonly: true
+      - name: profile
+        label: Profile and photo
+        type: object
+        fields:
+          - name: name
+            label: Your name
+            type: string
+            required: true
+          - name: role
+            label: Professional title
+            type: string
+            required: true
+          - name: summary
+            label: About you
+            type: text
+          - name: photo
+            label: Hero photo
+            type: image
+          - name: location
+            type: string
+          - name: email
+            label: Public email
+            type: string
+            required: true
+          - name: github
+            label: GitHub URL
+            type: string
+            required: true
+          - name: linkedin
+            label: LinkedIn URL
+            type: string
+            required: true
+      - name: projects
+        label: Projects
+        type: object
+        list:
+          max: 100
+          collapsible:
+            collapsed: true
+            summary: '{title}'
+        fields:
+          - name: id
+            label: Project URL slug
+            type: string
+            required: true
+            description: 'Unique, lowercase, hyphen-separated: maritime-portal. Keep it unchanged after publication so links continue working.'
+            pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          - name: title
+            label: Project title
+            type: string
+            required: true
+          - name: category
+            label: Category
+            type: string
+          - name: description
+            label: Short description
+            type: text
+          - name: problem
+            label: The problem
+            type: text
+          - name: contribution
+            label: Your contribution
+            type: text
+          - name: decisions
+            label: Technical decisions
+            type: text
+          - name: outcome
+            label: Results and outcomes
+            type: text
+            description: 'Only include verified outcomes. Leave blank if details are confidential.'
+          - name: technologies
+            label: Technologies
+            type: string
+            list:
+              max: 30
+          - name: layers
+            label: System layers
+            type: select
+            required: true
+            options:
+              values: [Frontend, Backend, Data, Cloud]
+              multiple: true
+              min: 1
+          - name: screenshots
+            label: Approved screenshots
+            type: object
+            list:
+              max: 20
+              collapsible:
+                collapsed: true
+                summary: '{alt}'
+            fields:
+              - name: src
+                label: Image
+                type: image
+                required: true
+              - name: alt
+                label: Describe the screenshot
+                type: string
+                required: true
+          - name: accent
+            label: Card accent
+            type: select
+            options:
+              values: [cyan, violet, lime, orange]
+          - name: featured
+            label: Feature this project
+            type: boolean
+          - name: published
+            label: Published
+            type: boolean
+            description: 'Off = excluded from the website and public CV. The source is still visible in a public GitHub repository; do not store confidential information here.'
+      - name: skills
+        label: Skills
+        type: object
+        list:
+          max: 80
+          collapsible:
+            collapsed: true
+            summary: '{name} / {layer}'
+        fields:
+          - name: name
+            label: Skill
+            type: string
+            required: true
+          - name: layer
+            type: select
+            required: true
+            options:
+              values: [Frontend, Backend, Data, Cloud]
+      - name: experience
+        label: Work experience
+        component: career-entry
+      - name: education
+        label: Education
+        component: career-entry
+      - name: cv
+        label: CV export settings
+        type: object
+        fields:
+          - name: summary
+            label: Tailored CV summary
+            type: text
+            description: 'Leave blank to use your profile summary. All CMS data is public.'
+          - name: sections
+            label: Included sections, in order
+            type: select
+            list:
+              max: 5
+            options:
+              values: [summary, skills, experience, education, projects]
+          - name: projectIds
+            label: Included project slugs, in order
+            type: string
+            list:
+              max: 100
+            description: 'Use the exact URL slugs of existing projects. Unpublished projects are excluded automatically. Update this list when deleting a project.'

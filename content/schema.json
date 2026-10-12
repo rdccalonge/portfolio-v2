@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#", "title": "Portfolio", "type": "object", "additionalProperties": false,
+  "required": ["schemaVersion", "profile", "skills", "projects", "experience", "education", "cv"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "profile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "role", "summary", "location", "email", "github", "linkedin"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "role": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "summary": { "type": "string", "maxLength": 3000 },
+        "photo": { "type": "string", "pattern": "^media/[a-zA-Z0-9_-]+\\.(png|jpg|jpeg|webp)$" },
+        "location": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$" },
+        "github": { "type": "string", "pattern": "^https://github\\.com/[A-Za-z0-9_./-]+$" },
+        "linkedin": { "type": "string", "pattern": "^https://(www\\.)?linkedin\\.com/[A-Za-z0-9_./-]+$" }
+      }
+    },
+    "skills": { "type": "array", "maxItems": 80, "items": { "$ref": "#/definitions/Skill" } },
+    "projects": { "type": "array", "maxItems": 100, "items": { "$ref": "#/definitions/Project" } },
+    "experience": { "type": "array", "maxItems": 50, "items": { "$ref": "#/definitions/Entry" } },
+    "education": { "type": "array", "maxItems": 50, "items": { "$ref": "#/definitions/Entry" } },
+    "cv": {
+      "type": "object", "additionalProperties": false, "required": ["summary", "sections", "projectIds"],
+      "properties": {
+        "summary": { "type": "string", "maxLength": 3000 },
+        "sections": { "type": "array", "uniqueItems": true, "items": { "enum": ["summary", "skills", "experience", "education", "projects"] } },
+        "projectIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } }
+      }
+    }
+  },
+  "definitions": {
+    "Layer": { "enum": ["Frontend", "Backend", "Data", "Cloud"] },
+    "Skill": {
+      "type": "object", "additionalProperties": false, "required": ["name", "layer"],
+      "properties": { "name": { "type": "string", "minLength": 1, "maxLength": 80 }, "layer": { "$ref": "#/definitions/Layer" } }
+    },
+    "Project": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "category", "description", "problem", "contribution", "decisions", "outcome", "technologies", "layers", "screenshots", "featured", "published", "accent"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80 },
+        "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "category": { "type": "string", "maxLength": 100 },
+        "description": { "type": "string", "maxLength": 1500 },
+        "problem": { "type": "string", "maxLength": 10000 },
+        "contribution": { "type": "string", "maxLength": 10000 },
+        "decisions": { "type": "string", "maxLength": 10000 },
+        "outcome": { "type": "string", "maxLength": 10000 },
+        "technologies": { "type": "array", "maxItems": 30, "items": { "type": "string", "minLength": 1, "maxLength": 80 } },
+        "layers": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/definitions/Layer" } },
+        "screenshots": { "type": "array", "maxItems": 20, "items": {
+          "type": "object", "additionalProperties": false, "required": ["src", "alt"],
+          "properties": { "src": { "type": "string", "pattern": "^media/[a-zA-Z0-9_-]+\\.(png|jpg|jpeg|webp)$" }, "alt": { "type": "string", "minLength": 1, "maxLength": 300 } }
+        } },
+        "featured": { "type": "boolean" }, "published": { "type": "boolean" },
+        "accent": { "enum": ["cyan", "violet", "lime", "orange"] }
+      }
+    },
+    "Entry": {
+      "type": "object", "additionalProperties": false, "required": ["title", "organization", "start", "end", "details", "published"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "organization": { "type": "string", "maxLength": 160 },
+        "start": { "type": "string", "pattern": "^([0-9]{4}(-[0-9]{2})?)?$" },
+        "end": { "type": "string", "pattern": "^([0-9]{4}(-[0-9]{2})?|Present)?$" },
+        "details": { "type": "string", "maxLength": 10000 }, "published": { "type": "boolean" }
+      }
+    }
+  }
+}
