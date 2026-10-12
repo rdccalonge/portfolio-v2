@@ -99,7 +99,7 @@
       ],
       "layers": [
         "Backend",
-        "Data"
+        "Database"
       ],
       "accent": "cyan",
       "featured": true,
@@ -133,23 +133,23 @@
     },
     {
       "name": "Entity Framework",
-      "layer": "Data"
+      "layer": "Database"
     },
     {
       "name": "SQL Server",
-      "layer": "Data"
+      "layer": "Database"
     },
     {
       "name": "PostgreSQL",
-      "layer": "Data"
+      "layer": "Database"
     },
     {
       "name": "MySQL",
-      "layer": "Data"
+      "layer": "Database"
     },
     {
       "name": "Dapper",
-      "layer": "Data"
+      "layer": "Database"
     },
     {
       "name": "Azure",

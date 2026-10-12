@@ -130,8 +130,9 @@ content:
             required: true
             options:
               collection: layers
-              value: '{primary}'
-              label: '{primary}'
+              search: 'fields.name'
+              value: '{fields.name}'
+              label: '{fields.name}'
               multiple: true
               min: 1
           - name: screenshots
@@ -181,8 +182,9 @@ content:
             required: true
             options:
               collection: layers
-              value: '{primary}'
-              label: '{primary}'
+              search: 'fields.name'
+              value: '{fields.name}'
+              label: '{fields.name}'
       - name: experience
         label: Work experience
         component: career-entry

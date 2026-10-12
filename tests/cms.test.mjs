@@ -19,7 +19,9 @@ test('CMS media, layer choices, and CV options match build validation', () => {
   assert.equal(layers.type, 'collection'); assert.equal(layers.path, 'content/layers'); assert.equal(layers.view.primary, 'name');
   assert.deepEqual(layers.fields.map(f => f.name).sort(), Object.keys(schema.definitions.LayerDefinition.properties).sort());
   for (const reference of [field('projects').fields.find(f => f.name === 'layers'), field('skills').fields.find(f => f.name === 'layer')]) {
-    assert.equal(reference.type, 'reference'); assert.equal(reference.options.collection, 'layers'); assert.equal(reference.options.value, '{primary}');
+    assert.equal(reference.type, 'reference'); assert.equal(reference.options.collection, 'layers');
+    // CMS reserves bare "name" for filenames; explicit fields.name avoids an empty primary value.
+    assert.equal(reference.options.search, 'fields.name'); assert.equal(reference.options.value, '{fields.name}'); assert.equal(reference.options.label, '{fields.name}');
   }
   assert.deepEqual(field('cv').fields.find(f => f.name === 'sections').options.values, schema.properties.cv.properties.sections.items.enum);
   assert(field('cv').fields.find(f => f.name === 'sections').list);
