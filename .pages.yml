@@ -191,6 +191,35 @@ content:
       - name: education
         label: Education
         component: career-entry
+      - name: certifications
+        label: Certifications
+        type: object
+        list:
+          max: 50
+          collapsible:
+            collapsed: true
+            summary: '{name}'
+        fields:
+          - name: name
+            label: Certification name
+            type: string
+            required: true
+          - name: issuer
+            label: Issuing organization
+            type: string
+          - name: issued
+            label: Issue date
+            type: string
+            description: 'YYYY or YYYY-MM. Leave blank if unknown.'
+            pattern: '^([0-9]{4}(-[0-9]{2})?)?$'
+          - name: url
+            label: Public credential URL
+            type: string
+            description: 'Optional HTTPS verification link. Do not enter private credential tokens.'
+            pattern: '^(https://[^\s]+)?$'
+          - name: published
+            label: Include on portfolio and CV
+            type: boolean
       - name: cv
         label: CV export settings
         type: object
@@ -203,9 +232,9 @@ content:
             label: Included sections, in order
             type: select
             list:
-              max: 5
+              max: 6
             options:
-              values: [summary, skills, experience, education, projects]
+              values: [summary, skills, experience, education, certifications, projects]
           - name: projectIds
             label: Included project slugs, in order
             type: string

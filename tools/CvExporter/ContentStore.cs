@@ -44,6 +44,6 @@ public sealed class ContentStore(string root)
     public static PortfolioDocument PublicProjection(PortfolioDocument doc)
     {
         var projects = doc.Projects.Where(p => p.Published).ToList();
-        return doc with { Projects = projects, Experience = doc.Experience.Where(e => e.Published).ToList(), Education = doc.Education.Where(e => e.Published).ToList(), Cv = doc.Cv with { ProjectIds = doc.Cv.ProjectIds.Where(id => projects.Any(p => p.Id == id)).ToList() } };
+        return doc with { Projects = projects, Experience = doc.Experience.Where(e => e.Published).ToList(), Education = doc.Education.Where(e => e.Published).ToList(), Certifications = doc.Certifications?.Where(cert => cert.Published).ToList(), Cv = doc.Cv with { ProjectIds = doc.Cv.ProjectIds.Where(id => projects.Any(p => p.Id == id)).ToList() } };
     }
 }

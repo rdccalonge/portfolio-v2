@@ -7,5 +7,6 @@ public record Project(string Id, string Title, string Category, string Descripti
 public record Entry(string Title, string Organization, string Start, string End, string Details, bool Published);
 public record CvSelection(string Summary, List<string> Sections, List<string> ProjectIds);
 public record LayerDefinition(string Name, string Description, string Icon, int Order);
-public record PortfolioDocument(int SchemaVersion, Profile Profile, List<Skill> Skills, List<Project> Projects, List<Entry> Experience, List<Entry> Education, CvSelection Cv, List<LayerDefinition>? Layers = null);
+public record Certification(string Name, string Issuer, string Issued, string Url, bool Published);
+public record PortfolioDocument(int SchemaVersion, Profile Profile, List<Skill> Skills, List<Project> Projects, List<Entry> Experience, List<Entry> Education, CvSelection Cv, List<LayerDefinition>? Layers = null, List<Certification>? Certifications = null);
 public record ExportRequest(PortfolioDocument Content, string PrivatePhone = "", string PrivateAddress = "");

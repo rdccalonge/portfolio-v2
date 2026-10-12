@@ -55,4 +55,15 @@ public class ExportTests
         var data = Seed(); data.Skills.Add(new("PowerApps", "Mobile"));
         Assert.Contains(CvService.Blocks(new(data)), block => block.Text == "Mobile: PowerApps");
     }
+    [Fact]
+    public void CertificationIsSelectedInBothFormatsAndDraftsAreExcluded()
+    {
+        var data = Seed(); data = data with { Certifications = [new("Azure Fundamentals", "Microsoft", "", "https://example.com/credential", true), new("Private draft", "", "", "", false)], Cv = data.Cv with { Sections = ["certifications"] } };
+        var projected = ContentStore.PublicProjection(data); Assert.Single(projected.Certifications!);
+        var request = new ExportRequest(projected); var blocks = CvService.Blocks(request);
+        Assert.Contains(blocks, block => block.Text == "Azure Fundamentals"); Assert.DoesNotContain(blocks, block => block.Text == "Private draft");
+        Assert.Contains("Azure Fundamentals", CvService.Html(request));
+        using var stream = new MemoryStream(new CvService().Word(request)); using var word = WordprocessingDocument.Open(stream, false);
+        Assert.Contains("Azure Fundamentals", word.MainDocumentPart!.Document.Body!.InnerText); Assert.Single(word.MainDocumentPart.HyperlinkRelationships, link => link.Uri.ToString() == "https://example.com/credential");
+    }
 }

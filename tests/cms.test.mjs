@@ -12,6 +12,7 @@ test('CMS single-file editor matches the canonical content contract', () => {
   assert.deepEqual(field('profile').fields.map(f => f.name).sort(), Object.keys(schema.properties.profile.properties).sort());
   assert.deepEqual(field('projects').fields.map(f => f.name).sort(), Object.keys(schema.definitions.Project.properties).sort());
   assert.deepEqual(config.components['career-entry'].fields.map(f => f.name).sort(), Object.keys(schema.definitions.Entry.properties).sort());
+  assert.deepEqual(field('certifications').fields.map(f => f.name).sort(), Object.keys(schema.definitions.Certification.properties).sort());
 });
 test('CMS media, layer choices, and CV options match build validation', () => {
   assert.equal(config.media.input, 'public/media'); assert.equal(config.media.output, '/media'); assert.equal(config.media.rename, 'random');

@@ -3,11 +3,12 @@
   "profile": {
     "name": "Reni Calonge",
     "role": "Full-stack developer",
-    "summary": "I build across the stack—from interfaces and business logic to databases and cloud services. My experience spans C#, Blazor, Angular, SQL, Azure, and the end-to-end delivery of web applications.",
+    "summary": "Full-stack developer with 9+ years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support.",
     "photo": "media/reni-calonge.jpg",
     "email": "rdccalonge@gmail.com",
     "github": "https://github.com/rdccalonge",
-    "linkedin": "https://www.linkedin.com/in/reni-calonge-924457160/"
+    "linkedin": "https://www.linkedin.com/in/reni-calonge-924457160/",
+    "location": "Quezon City, Metro Manila, Philippines"
   },
   "projects": [
     {
@@ -23,7 +24,12 @@
       ],
       "accent": "violet",
       "featured": false,
-      "published": true
+      "published": true,
+      "problem": "",
+      "contribution": "",
+      "decisions": "",
+      "outcome": "",
+      "screenshots": []
     },
     {
       "id": "ecommerce",
@@ -39,7 +45,12 @@
       ],
       "accent": "cyan",
       "featured": false,
-      "published": true
+      "published": true,
+      "problem": "",
+      "contribution": "",
+      "decisions": "",
+      "outcome": "",
+      "screenshots": []
     },
     {
       "id": "insurance-app",
@@ -55,7 +66,12 @@
       ],
       "accent": "orange",
       "featured": false,
-      "published": true
+      "published": true,
+      "problem": "",
+      "contribution": "",
+      "decisions": "",
+      "outcome": "",
+      "screenshots": []
     },
     {
       "id": "parking-platform",
@@ -71,7 +87,12 @@
       ],
       "accent": "lime",
       "featured": true,
-      "published": true
+      "published": true,
+      "problem": "",
+      "contribution": "",
+      "decisions": "",
+      "outcome": "",
+      "screenshots": []
     },
     {
       "id": "maritime-portal",
@@ -87,7 +108,12 @@
       ],
       "accent": "violet",
       "featured": true,
-      "published": true
+      "published": true,
+      "problem": "",
+      "contribution": "",
+      "decisions": "",
+      "outcome": "",
+      "screenshots": []
     },
     {
       "id": "data-auto-mapper",
@@ -103,7 +129,12 @@
       ],
       "accent": "cyan",
       "featured": true,
-      "published": true
+      "published": true,
+      "problem": "",
+      "contribution": "",
+      "decisions": "",
+      "outcome": "",
+      "screenshots": []
     }
   ],
   "skills": [
@@ -149,7 +180,7 @@
     },
     {
       "name": "Dapper",
-      "layer": "Database"
+      "layer": "ORM"
     },
     {
       "name": "Azure",
@@ -166,13 +197,212 @@
     {
       "name": "Azure DevOps",
       "layer": "Cloud"
+    },
+    {
+      "name": ".NET",
+      "layer": "Backend"
+    },
+    {
+      "name": ".NET Core",
+      "layer": "Backend"
+    },
+    {
+      "name": "ASP.NET",
+      "layer": "Backend"
+    },
+    {
+      "name": "GraphQL",
+      "layer": "Backend"
+    },
+    {
+      "name": "MSTest",
+      "layer": "Backend"
+    },
+    {
+      "name": "NUnit",
+      "layer": "Backend"
+    },
+    {
+      "name": "xUnit",
+      "layer": "Backend"
+    },
+    {
+      "name": "Postman",
+      "layer": "Backend"
+    },
+    {
+      "name": "Crystal Reports",
+      "layer": "Backend"
+    },
+    {
+      "name": "Aspose.Cells",
+      "layer": "Backend"
+    },
+    {
+      "name": "RDLC",
+      "layer": "Backend"
+    },
+    {
+      "name": "ClosedXML",
+      "layer": "Backend"
+    },
+    {
+      "name": "PDF4NET",
+      "layer": "Backend"
+    },
+    {
+      "name": "Razor Pages",
+      "layer": "Frontend"
+    },
+    {
+      "name": "TypeScript",
+      "layer": "Frontend"
+    },
+    {
+      "name": "Power Apps",
+      "layer": "Frontend"
+    },
+    {
+      "name": "GSAP",
+      "layer": "Frontend"
+    },
+    {
+      "name": "Google Tag Manager",
+      "layer": "Frontend"
+    },
+    {
+      "name": "LaunchDarkly",
+      "layer": "Frontend"
+    },
+    {
+      "name": "Lokalise",
+      "layer": "Frontend"
+    },
+    {
+      "name": "EF Core",
+      "layer": "ORM"
+    },
+    {
+      "name": "Elasticsearch",
+      "layer": "Database"
+    },
+    {
+      "name": "Azure Data Factory",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Azure Blob Storage",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Azure Event Hub",
+      "layer": "Cloud"
+    },
+    {
+      "name": "AWS Lambda",
+      "layer": "Cloud"
+    },
+    {
+      "name": "AWS SQS",
+      "layer": "Cloud"
+    },
+    {
+      "name": "AWS SNS",
+      "layer": "Cloud"
+    },
+    {
+      "name": "AWS EventBridge",
+      "layer": "Cloud"
+    },
+    {
+      "name": "AWS RDS",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Docker",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Kubernetes",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Rancher",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Vault",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Grafana",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Datadog",
+      "layer": "Cloud"
+    },
+    {
+      "name": "New Relic",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Kafka",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Google Pub/Sub",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Git",
+      "layer": "Cloud"
+    },
+    {
+      "name": "GitLab",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Bitbucket",
+      "layer": "Cloud"
+    },
+    {
+      "name": "SourceTree",
+      "layer": "Cloud"
+    },
+    {
+      "name": "TFS",
+      "layer": "Cloud"
+    },
+    {
+      "name": "JIRA",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Confluence",
+      "layer": "Cloud"
+    },
+    {
+      "name": "GitLab CI/CD",
+      "layer": "Cloud"
+    },
+    {
+      "name": "TeamCity",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Octopus Deploy",
+      "layer": "Cloud"
     }
   ],
   "education": [
     {
       "title": "Bachelor of Science in Information Technology",
       "organization": "Trinity University of Asia",
-      "published": true
+      "published": true,
+      "start": "2011",
+      "end": "2015",
+      "details": ""
     }
   ],
   "cv": {
@@ -181,12 +411,81 @@
       "skills",
       "experience",
       "education",
+      "certifications",
       "projects"
     ],
     "projectIds": [
       "data-auto-mapper",
       "maritime-portal",
       "parking-platform"
-    ]
-  }
+    ],
+    "summary": "Full-stack developer with 9+ years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support."
+  },
+  "experience": [
+    {
+      "title": "Senior Backend Engineer",
+      "organization": "Smartwave BAV Studios",
+      "start": "2024",
+      "end": "2025",
+      "details": "Maintained and enhanced a microservice-based e-commerce platform serving multiple countries, including payment integrations.\nDeveloped SOAP and REST APIs with .NET and .NET Core, repository patterns, Dapper, and EF Core; built background services and triggers.\nMigrated legacy .NET Framework projects to .NET Core and databases from AWS EC2 to RDS; optimized queries and addressed API vulnerabilities.\nIntegrated AWS Lambda, SQS, SNS, and EventBridge, plus Azure Event Hub and Service Bus.\nCreated and maintained CI/CD pipelines with TeamCity and Octopus Deploy; monitored production with New Relic.\nCreated internal NuGet packages, shared libraries, and console automation tools; maintained Elasticsearch and the Insider platform.",
+      "published": true
+    },
+    {
+      "title": "Full Stack .NET Developer",
+      "organization": "ERNI Philippines",
+      "start": "2021",
+      "end": "2024",
+      "details": "Delivered eight enterprise web solutions across marine, insurance, education, transportation, healthcare/pharmaceuticals, renewable energy, retail/e-commerce, and ERP domains.\nDeveloped ASP.NET and ASP.NET Core applications and REST APIs using CQRS and EF Core.\nBuilt Angular/TypeScript and Blazor frontends and mobile applications with Power Apps.\nApplied test-driven development with at least 50% code coverage and created API test automation with Postman.\nIntegrated Azure Blob Storage, Data Factory, and Functions, plus Google Pub/Sub, Kafka, SMS, and email services.\nManaged Azure DevOps and GitLab pipelines; configured Dockerfiles and troubleshot Kubernetes pods.\nSupported WCAG certification and development-process improvements; integrated LaunchDarkly and GraphQL-based authorization with MSAL token refresh.\nMonitored applications with Datadog and Rancher.",
+      "published": true
+    },
+    {
+      "title": "Web Developer",
+      "organization": "Collective Solutions Ph",
+      "start": "2016",
+      "end": "2021",
+      "details": "Developed and maintained in-house ASP.NET tools and integrations with web services and third-party REST APIs.\nDeployed and configured .NET applications in IIS; administered SQL Server databases, queries, and stored procedures.\nBuilt interfaces with Bootstrap 4 and Angular/TypeScript; remotely administered servers and investigated performance under load.",
+      "published": true
+    },
+    {
+      "title": "Digital Developer",
+      "organization": "Freelance",
+      "start": "2019",
+      "end": "2020",
+      "details": "Built HTML5 rich-media interactive advertisements with JavaScript, CSS, and GSAP animations.\nIntegrated video-engagement and advertising metrics tracking; ensured mobile responsiveness and cross-browser compatibility.",
+      "published": true
+    },
+    {
+      "title": "Junior Programmer",
+      "organization": "Condor POS Solution RP.",
+      "start": "2015",
+      "end": "2016",
+      "details": "Developed web and Windows point-of-sale modules and supported a real-time web bidding platform.\nDesigned interfaces and automated POS configuration; improved website security and supported technical discussions and API integrations.",
+      "published": true
+    },
+    {
+      "title": "Technical Support",
+      "organization": "CA Telemarketing Inc.",
+      "start": "2014",
+      "end": "2015",
+      "details": "Worked part-time while studying, supporting customers of a US government-program mobile service provider with troubleshooting, documentation, and enrollment.",
+      "published": true
+    },
+    {
+      "title": "TSR/CSR",
+      "organization": "Synnex Concentrix",
+      "start": "2011",
+      "end": "2012",
+      "details": "Worked part-time while studying, providing technical support and customer service for a US satellite television provider, including signal, remote-control, and billing issues.",
+      "published": true
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+      "issuer": "Microsoft",
+      "issued": "",
+      "url": "https://www.credly.com/badges/73b04a1e-f50f-45ea-9dfa-30f8fd022ba4/public_url",
+      "published": true
+    }
+  ]
 }

@@ -23,6 +23,16 @@ public sealed class CvService
                 case "skills": foreach (var layer in d.Skills.GroupBy(s => s.Layer)) body.Add(new("text", layer.Key + ": " + string.Join(", ", layer.Select(s => s.Name)))); break;
                 case "experience": AddEntries(body, d.Experience); break;
                 case "education": AddEntries(body, d.Education); break;
+                case "certifications":
+                    foreach (var cert in d.Certifications ?? [])
+                    {
+                        if (!cert.Published) continue;
+                        body.Add(new("subheading", cert.Name));
+                        var detail = string.Join(" | ", new[] { cert.Issuer, cert.Issued }.Where(value => !string.IsNullOrWhiteSpace(value)));
+                        if (detail.Length > 0) body.Add(new("text", detail));
+                        if (cert.Url.Length > 0) body.Add(new("link", "Verify credential", cert.Url));
+                    }
+                    break;
                 case "projects":
                     foreach (var id in d.Cv.ProjectIds)
                     {
@@ -39,7 +49,7 @@ public sealed class CvService
     }
     private static void AddEntries(List<Block> blocks, IEnumerable<Entry> entries)
     {
-        foreach (var e in entries) { blocks.Add(new("subheading", e.Title)); if (e.Organization.Length > 0) blocks.Add(new("text", e.Organization)); var dates = string.Join(" — ", new[] { e.Start, e.End }.Where(s => s.Length > 0)); if (dates.Length > 0) blocks.Add(new("text", dates)); if (e.Details.Length > 0) blocks.Add(new("text", e.Details)); }
+        foreach (var e in entries) { blocks.Add(new("subheading", e.Title)); if (e.Organization.Length > 0) blocks.Add(new("meta", e.Organization)); var dates = string.Join(" - ", new[] { e.Start, e.End }.Where(s => s.Length > 0)); if (dates.Length > 0) blocks.Add(new("meta", dates)); if (e.Details.Length > 0) blocks.Add(new("text", e.Details)); }
     }
     public static string Html(ExportRequest request)
     {
@@ -47,6 +57,7 @@ public sealed class CvService
         foreach (var block in Blocks(request))
         {
             var text = WebUtility.HtmlEncode(block.Text);
+            if (block.Kind == "meta") { html.Append("<p style='break-after:avoid'>").Append(text).Append("</p>"); continue; }
             html.Append(block.Kind switch { "name" => $"<h1>{text}</h1>", "role" => $"<p class='role'>{text}</p>", "heading" => $"<h2>{text}</h2>", "subheading" => $"<h3>{text}</h3>", "link" => $"<p><a href='{WebUtility.HtmlEncode(block.Url)}'>{text}</a></p>", _ => $"<p>{text}</p>" });
         }
         return html.Append("</body></html>").ToString();
@@ -70,7 +81,7 @@ public sealed class CvService
             {
                 var size = block.Kind == "name" ? "48" : block.Kind == "heading" ? "24" : "21";
                 var properties = new ParagraphProperties(new SpacingBetweenLines { After = "90" });
-                if (block.Kind is "name" or "heading" or "subheading") properties.AddChild(new KeepNext(), true);
+                if (block.Kind is "name" or "heading" or "subheading" or "meta") properties.AddChild(new KeepNext(), true);
                 if (block.Kind is "name" or "heading" or "subheading") properties.AddChild(new KeepLines(), true);
                 var para = new Paragraph(properties);
                 var run = new Run(new RunProperties(new RunFonts { Ascii = "Arial", HighAnsi = "Arial" }, new FontSize { Val = size }));

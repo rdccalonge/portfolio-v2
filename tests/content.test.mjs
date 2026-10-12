@@ -55,3 +55,9 @@ test('an unassigned custom layer can be added with blank optional fields', () =>
   const data = normalizeContent(copy()); data.layers.push({ name: 'AI', description: null, icon: null, order: null });
   const layer = publicContent(data).layers.find(layer => layer.name === 'AI'); assert.equal(layer.icon, '◇'); assert.equal(layer.order, 0);
 });
+test('certification defaults, publication, and section selection are validated', () => {
+  const data = copy(); data.certifications = [{ name: 'Draft certification' }, { name: 'Azure Fundamentals', issuer: 'Microsoft', published: true }];
+  data.cv.sections.push('certifications'); const view = publicContent(data);
+  assert.equal(view.certifications.length, 1); assert.equal(view.certifications[0].url, ''); assert(view.cv.sections.includes('certifications'));
+  data.certifications[1].url = 'javascript:alert(1)'; assert.throws(() => publicContent(data));
+});

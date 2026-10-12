@@ -39,3 +39,8 @@ test('CMS layer collection drives system cards and project filters', async ({ pa
     await expect(page.locator('.project-card')).toHaveCount(content.projects.filter((project: any) => project.layers.includes(layer.name)).length);
   }
 });
+test('approved experience and certifications appear on the portfolio', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto('./');
+  for (const entry of content.experience) await expect(page.locator('.timeline').getByRole('heading', { name: entry.title, exact: true })).toBeVisible();
+  for (const cert of content.certifications ?? []) await expect(page.locator('.certification-list').getByRole('heading', { name: cert.name, exact: true })).toBeVisible();
+});

@@ -57,6 +57,7 @@ Layer names are identifiers. To rename one safely, create the replacement, updat
 
 - **Profile and photo** edits your photo and public contacts. The current photo is an optimized copy of the old portfolio's `images/pic01.jpg`.
 - **Work experience / Education** adds entries. Leave unverified dates blank. Dates use `YYYY` or `YYYY-MM`; End also accepts `Present`.
+- **Certifications** edits credential names, issuer, optional issue date, and public verification links. Switch **Include on portfolio and CV** on, and include `certifications` under **CV export settings → Included sections** to export them. Unknown dates stay blank. Personal telephone numbers and referee contacts are excluded from public content.
 - **Skills** populates the systems map. **CV export settings** selects/reorders sections and project slugs and sets a public CV summary.
 - Featured projects appear first, preserving relative order. Downloads include a plain single-column PDF and editable DOCX. Photos are omitted from the CV.
 - The C# console tool runs at build time only. No .NET runtime or API is deployed.
