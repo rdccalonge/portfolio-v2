@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 const content = JSON.parse(readFileSync('.local/public-content.json', 'utf8'));
-test('static home, portrait, search, motion controls, and CMS link work', async ({ page }) => {
+test('static home works and exposes no CMS/admin link', async ({ page }) => {
   const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
   await page.goto('./'); await expect(page.getByRole('heading', { name: content.profile.name + '.' })).toBeVisible();
   if (content.profile.photo) await expect.poll(() => page.locator('.hero-portrait img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBeTruthy();
@@ -12,7 +12,7 @@ test('static home, portrait, search, motion controls, and CMS link work', async 
     const matches = content.projects.filter((p: any) => `${p.title} ${p.category} ${p.technologies.join(' ')}`.toLowerCase().includes(query));
     await expect(page.locator('.project-card')).toHaveCount(matches.length);
   }
-  await expect(page.getByRole('link', { name: 'Manage content' })).toHaveAttribute('href', 'https://app.pagescms.org');
+  await expect(page.locator('a[href*="pagescms.org"]')).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy(); expect(errors).toEqual([]);
 });
 test('project route exists on static server and survives direct refresh', async ({ page }) => {

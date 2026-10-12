@@ -7,6 +7,7 @@ Lead with Reni's name and the reused optimized photo. Floating chips, rotating t
 
 ## CMS and contract
 Pages CMS is the form editor. Place .pages.yml at the root of the separate portfolio-v2 repository. Forms edit profile/photo, projects, skills, experience, education, and ordered CV selections in content/portfolio.json and public/media. No custom API or database. Original portfolio files remain untouched.
+CMS editing is intended for the owner only. Do not show CMS links or forms on the public portfolio. Keep owner setup instructions in README; authentication and GitHub/CMS permissions enforce access. Do not invite collaborators or grant repository write access if editing should remain owner-only.
 content/schema.json defines the shared contract. Normalize empty optional CMS fields and /media/ paths, validate slugs/links/IDs, generate TypeScript types, and create normalized C# export input. New projects default unpublished. Published entries only enter the site and public CV.
 Unpublished is a website visibility flag, not confidentiality: a public repository exposes all source data. Private CV requests belong in ignored .local/ or outside Git. Never fabricate employers, dates, or metrics.
 

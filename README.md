@@ -14,7 +14,17 @@ npm start
 
 Open http://localhost:4200. `npm run build` creates the verified static site in `dist/public/browser` for `/portfolio-v2/`.
 
-## Connect the CMS and GitHub Pages once
+## Owner-only CMS access
+
+The CMS is an owner editing tool, separate from the public portfolio. Visitors see your work and CV downloads; the portfolio has no CMS/admin link or editing form. Open [Pages CMS](https://app.pagescms.org) directly when you want to make updates.
+
+Keep the GitHub repository owned by your personal account, authorize the Pages CMS GitHub App for this repository only, and do not grant other people repository write access or invite Pages CMS collaborators. Access is controlled by GitHub/CMS authentication and permissions; removing a public link is not an access control. Review these permissions in your accounts after setup.
+
+This README is public documentation when the repository is public. It explains your maintenance workflow but grants nobody editing access. Never include passwords or tokens here. The README is not included in the deployed website.
+
+See [Pages CMS collaborator permissions](https://pagescms.org/docs/configuration/collaborators/).
+
+## Owner setup: connect the CMS and GitHub Pages once
 
 1. Create a **separate public GitHub repository named portfolio-v2**. Copy this project's contents to its root, including `.pages.yml`, `.github/`, and `.gitignore`. Exclude `node_modules`, `dist`, `.angular`, `.local`, `bin`, and `obj`. The project is nested inside the old repository only for development; its CMS/workflow files become active at the new repository root.
 2. Commit and push the implementation to `main` using your usual Git tools. Do not overwrite the old portfolio repository.
