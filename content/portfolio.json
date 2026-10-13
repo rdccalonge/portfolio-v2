@@ -29,7 +29,32 @@
       "contribution": "",
       "decisions": "",
       "outcome": "",
-      "screenshots": []
+      "screenshots": [
+        {
+          "src": "media/legacy-powerapp-1.png",
+          "alt": "Health Declaration — application screenshot 1"
+        },
+        {
+          "src": "media/legacy-powerapp-2.png",
+          "alt": "Health Declaration — application screenshot 2"
+        },
+        {
+          "src": "media/legacy-powerapp-3.png",
+          "alt": "Health Declaration — application screenshot 3"
+        },
+        {
+          "src": "media/legacy-powerapp-4.png",
+          "alt": "Health Declaration — application screenshot 4"
+        },
+        {
+          "src": "media/legacy-powerapp-5.png",
+          "alt": "Health Declaration — application screenshot 5"
+        },
+        {
+          "src": "media/legacy-powerapp-6.png",
+          "alt": "Health Declaration — application screenshot 6"
+        }
+      ]
     },
     {
       "id": "ecommerce",
@@ -50,7 +75,20 @@
       "contribution": "",
       "decisions": "",
       "outcome": "",
-      "screenshots": []
+      "screenshots": [
+        {
+          "src": "media/legacy-thesis1.jpg",
+          "alt": "E-commerce / Shopping Cart — application screenshot 1"
+        },
+        {
+          "src": "media/legacy-thesis2.jpg",
+          "alt": "E-commerce / Shopping Cart — application screenshot 2"
+        },
+        {
+          "src": "media/legacy-thesis3.jpg",
+          "alt": "E-commerce / Shopping Cart — application screenshot 3"
+        }
+      ]
     },
     {
       "id": "insurance-app",
@@ -71,7 +109,36 @@
       "contribution": "",
       "decisions": "",
       "outcome": "",
-      "screenshots": []
+      "screenshots": [
+        {
+          "src": "media/legacy-eapp0.jpg",
+          "alt": "Insurance Electronic App — application screenshot 1"
+        },
+        {
+          "src": "media/legacy-eapp1.jpg",
+          "alt": "Insurance Electronic App — application screenshot 2"
+        },
+        {
+          "src": "media/legacy-eapp2.jpg",
+          "alt": "Insurance Electronic App — application screenshot 3"
+        },
+        {
+          "src": "media/legacy-eapp3.jpg",
+          "alt": "Insurance Electronic App — application screenshot 4"
+        },
+        {
+          "src": "media/legacy-eapp4.jpg",
+          "alt": "Insurance Electronic App — application screenshot 5"
+        },
+        {
+          "src": "media/legacy-eapp5.jpg",
+          "alt": "Insurance Electronic App — application screenshot 6"
+        },
+        {
+          "src": "media/legacy-eapp6.jpg",
+          "alt": "Insurance Electronic App — application screenshot 7"
+        }
+      ]
     },
     {
       "id": "parking-platform",
@@ -92,7 +159,44 @@
       "contribution": "",
       "decisions": "",
       "outcome": "",
-      "screenshots": []
+      "screenshots": [
+        {
+          "src": "media/legacy-parking8.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 1"
+        },
+        {
+          "src": "media/legacy-parking9.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 2"
+        },
+        {
+          "src": "media/legacy-parking1.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 3"
+        },
+        {
+          "src": "media/legacy-parking2.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 4"
+        },
+        {
+          "src": "media/legacy-parking3.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 5"
+        },
+        {
+          "src": "media/legacy-parking4.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 6"
+        },
+        {
+          "src": "media/legacy-parking5.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 7"
+        },
+        {
+          "src": "media/legacy-parking6.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 8"
+        },
+        {
+          "src": "media/legacy-parking7.jpg",
+          "alt": "Parking Backend & Admin — application screenshot 9"
+        }
+      ]
     },
     {
       "id": "maritime-portal",
@@ -113,7 +217,28 @@
       "contribution": "",
       "decisions": "",
       "outcome": "",
-      "screenshots": []
+      "screenshots": [
+        {
+          "src": "media/legacy-osm1.jpg",
+          "alt": "Maritime Customer Portal — application screenshot 1"
+        },
+        {
+          "src": "media/legacy-osm2.jpg",
+          "alt": "Maritime Customer Portal — application screenshot 2"
+        },
+        {
+          "src": "media/legacy-osm3.jpg",
+          "alt": "Maritime Customer Portal — application screenshot 3"
+        },
+        {
+          "src": "media/legacy-osm4.jpg",
+          "alt": "Maritime Customer Portal — application screenshot 4"
+        },
+        {
+          "src": "media/legacy-osm5.jpg",
+          "alt": "Maritime Customer Portal — application screenshot 5"
+        }
+      ]
     },
     {
       "id": "data-auto-mapper",
@@ -134,7 +259,32 @@
       "contribution": "",
       "decisions": "",
       "outcome": "",
-      "screenshots": []
+      "screenshots": [
+        {
+          "src": "media/legacy-automap1.png",
+          "alt": "Data Auto Mapper — application screenshot 1"
+        },
+        {
+          "src": "media/legacy-automap2.png",
+          "alt": "Data Auto Mapper — application screenshot 2"
+        },
+        {
+          "src": "media/legacy-automap3.png",
+          "alt": "Data Auto Mapper — application screenshot 3"
+        },
+        {
+          "src": "media/legacy-automap4.png",
+          "alt": "Data Auto Mapper — application screenshot 4"
+        },
+        {
+          "src": "media/legacy-automap5.png",
+          "alt": "Data Auto Mapper — application screenshot 5"
+        },
+        {
+          "src": "media/legacy-automap6.png",
+          "alt": "Data Auto Mapper — application screenshot 6"
+        }
+      ]
     }
   ],
   "skills": [

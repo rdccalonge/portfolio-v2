@@ -44,3 +44,11 @@ test('approved experience and certifications appear on the portfolio', async ({ 
   for (const entry of content.experience) await expect(page.locator('.timeline').getByRole('heading', { name: entry.title, exact: true })).toBeVisible();
   for (const cert of content.certifications ?? []) await expect(page.locator('.certification-list').getByRole('heading', { name: cert.name, exact: true })).toBeVisible();
 });
+test('project screenshots load on their static pages', async ({ page, request }) => {
+  for (const project of content.projects.filter((project: any) => project.screenshots.length)) {
+    await page.goto(`projects/${project.id}/`);
+    await expect(page.locator('figure img')).toHaveCount(project.screenshots.length);
+    for (const shot of project.screenshots) expect((await request.get(shot.src)).status()).toBe(200);
+    await expect.poll(() => page.locator('figure img').first().evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBeTruthy();
+  }
+});
