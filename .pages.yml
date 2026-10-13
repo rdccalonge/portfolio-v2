@@ -104,8 +104,9 @@ content:
             label: Category
             type: string
           - name: description
-            label: Short description
+            label: Project description
             type: text
+            description: 'Describe what this project does. Shown on its card and at the top of its project page.'
           - name: problem
             label: The problem
             type: text
@@ -120,8 +121,9 @@ content:
             type: text
             description: 'Only include verified outcomes. Leave blank if details are confidential.'
           - name: technologies
-            label: Technologies
+            label: Tech stack used
             type: string
+            description: 'Add one technology per item. Include only technologies used for this project.'
             list:
               max: 30
           - name: layers
@@ -270,3 +272,5 @@ content:
         label: Display order
         type: number
         description: 'Lower numbers appear first. Existing layers use 10, 20, 30, and 40.'
+
+

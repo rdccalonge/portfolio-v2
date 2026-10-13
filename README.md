@@ -102,3 +102,6 @@ codex mcp add angular-cli -- npx --no-install ng mcp --read-only
 ```
 
 Run that manually if desired; this project does not modify account configuration. No CMS plugin is required.
+
+To edit an existing project's introduction and stack, open **Portfolio content → Projects**, expand the project, edit **Project description**, and add or remove entries under **Tech stack used**. Save to rebuild the public site. Each project has its own values; the description also appears on its card. Optional problem, contribution, technical decisions, and outcome fields add case-study sections when filled.
+
