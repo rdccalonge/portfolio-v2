@@ -16,10 +16,10 @@ export type Layer = Portfolio['skills'][number]['layer'];
   </div>` })
 export class ProjectArt { project = input.required<Project>(); assetBase = input(''); }
 @Component({ selector: 'app-project-detail', imports: [ProjectArt], template: `
-  <div class="case-heading"><span class="eyebrow">{{ project().category }}</span><h1>{{ project().title }}</h1><p>{{ project().description }}</p><div class="tags">@for (tech of project().technologies; track tech) { <span>{{ tech }}</span> }</div></div>
+  <div class="case-heading"><span class="eyebrow">{{ project().category }}</span><h1>{{ project().title }}</h1><p>{{ project().description }}</p></div>
   @if (!project().screenshots.length) { <app-project-art [project]="project()" /> }
   <div class="case-sections">@for (section of sections(); track section.title) { @if(section.text) { <section><span class="eyebrow">{{ section.title }}</span><p>{{ section.text }}</p></section> } }</div>
-  @if (!hasStory()) { <p class="case-note">This project is part of my existing work collection. A detailed case study will be added here.</p> }
+  @if (project().technologies.length) { <section class="case-tech-stack" aria-label="Tech stack used"><h2 class="eyebrow">Tech stack used</h2><div class="tags">@for (tech of project().technologies; track tech) { <span>{{ tech }}</span> }</div></section> }
   @if (project().screenshots.length) {
     <section class="screenshot-gallery" aria-label="Project screenshots">
       <div class="gallery-heading"><span class="eyebrow">Inside the project</span><span aria-live="polite">{{ selected() + 1 }} / {{ project().screenshots.length }}</span></div>
@@ -62,4 +62,5 @@ export class PortfolioView {
   skills(layer: Layer) { return this.data().skills.filter(s => s.layer === layer); }
   setQuery(event: Event) { this.query.set((event.target as HTMLInputElement).value); }
 }
+
 
