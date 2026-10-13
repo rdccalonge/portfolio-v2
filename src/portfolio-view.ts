@@ -20,10 +20,33 @@ export class ProjectArt { project = input.required<Project>(); assetBase = input
   @if (!project().screenshots.length) { <app-project-art [project]="project()" /> }
   <div class="case-sections">@for (section of sections(); track section.title) { @if(section.text) { <section><span class="eyebrow">{{ section.title }}</span><p>{{ section.text }}</p></section> } }</div>
   @if (!hasStory()) { <p class="case-note">This project is part of my existing work collection. A detailed case study will be added here.</p> }
-  @for (shot of project().screenshots; track shot.src) { <figure><img [src]="assetBase() + shot.src" [alt]="shot.alt" loading="lazy"><figcaption>{{ shot.alt }}</figcaption></figure> }
+  @if (project().screenshots.length) {
+    <section class="screenshot-gallery" aria-label="Project screenshots">
+      <div class="gallery-heading"><span class="eyebrow">Inside the project</span><span aria-live="polite">{{ selected() + 1 }} / {{ project().screenshots.length }}</span></div>
+      <figure class="gallery-frame">
+        <div class="gallery-toolbar" aria-hidden="true"><i></i><i></i><i></i><span>{{ project().title }}</span></div>
+        <button class="gallery-open" aria-label="Open screenshot full screen" (click)="viewer.showModal()" (touchstart)="touchStart($event)" (touchend)="touchEnd($event)"><img [src]="assetBase() + active().src" [alt]="active().alt" (load)="classify($event)"><span>↗ View full screen</span></button>
+        <figcaption>{{ active().alt }}</figcaption>
+      </figure>
+      <div class="gallery-controls"><button aria-label="Previous screenshot" (click)="move(-1)">←</button><p>Select a screen to explore</p><button aria-label="Next screenshot" (click)="move(1)">→</button></div>
+      <div class="gallery-thumbnails">@for (shot of project().screenshots; track shot.src; let i = $index) { <button [attr.aria-label]="'Show screenshot ' + (i + 1)" [attr.aria-pressed]="selected() === i" (click)="selected.set(i)"><img [src]="assetBase() + shot.src" alt="" loading="lazy"><span>{{ i + 1 }}</span></button> }</div>
+    </section>
+    <dialog #viewer class="screenshot-viewer" aria-label="Screenshot viewer" (keydown.arrowleft)="move(-1); $event.preventDefault()" (keydown.arrowright)="move(1); $event.preventDefault()">
+      <div class="viewer-header"><span>{{ selected() + 1 }} / {{ project().screenshots.length }}</span><button autofocus aria-label="Close screenshot viewer" (click)="viewer.close()">Close ×</button></div>
+      <div class="viewer-image" (touchstart)="touchStart($event)" (touchend)="touchEnd($event)"><img [src]="assetBase() + active().src" [alt]="active().alt"></div>
+      <div class="viewer-footer"><button aria-label="Previous screenshot" (click)="move(-1)">←</button><p>{{ active().alt }}</p><button aria-label="Next screenshot" (click)="move(1)">→</button></div>
+    </dialog>
+  }
 ` })
 export class ProjectDetail {
   project = input.required<Project>(); assetBase = input('');
+  selected = signal(0);
+  active = computed(() => this.project().screenshots[this.selected()] ?? this.project().screenshots[0]);
+  classify(event: Event) { const image = event.target as HTMLImageElement; image.classList.toggle('portrait-shot', image.naturalHeight > image.naturalWidth * 1.3); }
+  private startX = 0;
+  move(direction: number) { const count = this.project().screenshots.length; if (count) this.selected.update(index => (index + direction + count) % count); }
+  touchStart(event: TouchEvent) { this.startX = event.changedTouches[0].clientX; }
+  touchEnd(event: TouchEvent) { const distance = event.changedTouches[0].clientX - this.startX; if (Math.abs(distance) > 60) this.move(distance < 0 ? 1 : -1); }
   sections = computed(() => [{ title: '01 / The problem', text: this.project().problem }, { title: '02 / My contribution', text: this.project().contribution }, { title: '03 / Technical decisions', text: this.project().decisions }, { title: '04 / The outcome', text: this.project().outcome }]);
   hasStory = computed(() => this.sections().some(s => s.text));
 }
@@ -39,3 +62,4 @@ export class PortfolioView {
   skills(layer: Layer) { return this.data().skills.filter(s => s.layer === layer); }
   setQuery(event: Event) { this.query.set((event.target as HTMLInputElement).value); }
 }
+

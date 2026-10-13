@@ -47,8 +47,26 @@ test('approved experience and certifications appear on the portfolio', async ({ 
 test('project screenshots load on their static pages', async ({ page, request }) => {
   for (const project of content.projects.filter((project: any) => project.screenshots.length)) {
     await page.goto(`projects/${project.id}/`);
-    await expect(page.locator('figure img')).toHaveCount(project.screenshots.length);
+    await expect(page.locator('.gallery-thumbnails img')).toHaveCount(project.screenshots.length);
     for (const shot of project.screenshots) expect((await request.get(shot.src)).status()).toBe(200);
     await expect.poll(() => page.locator('figure img').first().evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBeTruthy();
   }
+});
+
+test('screenshot gallery supports selection, keyboard viewer and focus restoration', async ({ page }) => {
+  const project = content.projects.find((p: any) => p.screenshots.length > 1);
+  test.skip(!project, 'No gallery available.');
+  await page.goto(`projects/${project.id}/`);
+  await page.getByRole('button', { name: 'Show screenshot 2', exact: true }).click();
+  await expect(page.locator('.gallery-open img')).toHaveAttribute('src', new RegExp(project.screenshots[1].src + '$'));
+  const opener = page.getByRole('button', { name: 'Open screenshot full screen' });
+  await opener.click();
+  const viewer = page.getByRole('dialog', { name: 'Screenshot viewer' });
+  await expect(viewer).toBeVisible();
+  await page.keyboard.press('ArrowLeft');
+  await expect(viewer.locator('img')).toHaveAttribute('src', new RegExp(project.screenshots[0].src + '$'));
+  await page.keyboard.press('Escape');
+  await expect(viewer).not.toBeVisible();
+  await expect(opener).toBeFocused();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
 });
