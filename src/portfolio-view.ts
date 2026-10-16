@@ -77,10 +77,11 @@ export class PortfolioView {
   related = computed(() => this.data().projects.filter(p => p.published && p.layers.includes(this.selected() as Layer)));
   downloads = DOWNLOADS;
   opened = signal<Project | null>(null);
-  visible = computed(() => this.data().projects.filter(p => p.published && (this.category() === null || p.category === this.category()) && `${p.title} ${p.category} ${p.technologies.join(' ')}`.toLowerCase().includes(this.query().toLowerCase())).sort((a, b) => Number(b.featured) - Number(a.featured)));
+  visible = computed(() => this.data().projects.filter(p => p.published && (this.category() === null || p.category === this.category()) && `${p.title} ${p.category} ${p.technologies.join(' ')}`.toLowerCase().includes(this.query().toLowerCase())).sort((a, b) => Number(b.year || 0) - Number(a.year || 0)));
   choose(layer: Layer | null) { this.selected.set(layer); }
   skills(layer: Layer) { return this.data().skills.filter(s => s.layer === layer); }
   setQuery(event: Event) { this.query.set((event.target as HTMLInputElement).value); }
 }
+
 
 

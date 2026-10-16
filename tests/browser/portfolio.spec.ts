@@ -93,3 +93,9 @@ test('gallery autoplay advances, pauses on hover, and respects reduced motion', 
   await page.mouse.move(0, 0); await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.clock.fastForward(5100); await expect(image).toHaveAttribute('src', paused!);
 });
+test('work projects are ordered newest first with undated projects last', async ({ page }) => {
+  await page.goto('./');
+  const expected = [...content.projects].sort((a: any, b: any) => Number(b.year || 0) - Number(a.year || 0)).map((p: any) => p.title);
+  const actual = await page.locator('.project-card h3').allTextContents();
+  expect(actual.map(title => title.replace('↗', '').trim())).toEqual(expected);
+});
