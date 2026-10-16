@@ -504,8 +504,10 @@
       "id": "carwash-design",
       "title": "Carwash",
       "category": "Visual design",
-      "description": "Carwash visual design work from my previous portfolio.",
-      "technologies": [],
+      "description": "Carwash tarpaulin design presenting service prices, packages, and promotions.",
+      "technologies": [
+        "Adobe Photoshop"
+      ],
       "layers": [
         "Frontend"
       ],
@@ -521,14 +523,18 @@
       ],
       "accent": "cyan",
       "featured": false,
-      "published": true
+      "published": true,
+      "contribution": "Designed the tarpaulin layout and promotional graphics in Adobe Photoshop, organizing the service menu, prices, and offers.",
+      "decisions": "Used Adobe Photoshop to compose the tarpaulin artwork and arrange the pricing, menu, and promotional content."
     },
     {
       "id": "water-station-design",
       "title": "Water Station",
       "category": "Visual design",
-      "description": "Water station visual design work from my previous portfolio.",
-      "technologies": [],
+      "description": "Business tarpaulin and cover photo designs for a water refilling station.",
+      "technologies": [
+        "Adobe Photoshop"
+      ],
       "layers": [
         "Frontend"
       ],
@@ -544,14 +550,18 @@
       ],
       "accent": "cyan",
       "featured": false,
-      "published": true
+      "published": true,
+      "contribution": "Created the business tarpaulin artwork and cover photo in Adobe Photoshop.",
+      "decisions": "Used Adobe Photoshop to create layouts for the business tarpaulin and cover photo."
     },
     {
       "id": "shrimp-paste-design",
       "title": "Shrimp Paste",
       "category": "Visual design",
-      "description": "Shrimp paste visual design work from my previous portfolio.",
-      "technologies": [],
+      "description": "Logo and bottle sticker design for a shrimp paste product.",
+      "technologies": [
+        "Adobe Photoshop"
+      ],
       "layers": [
         "Frontend"
       ],
@@ -567,7 +577,9 @@
       ],
       "accent": "cyan",
       "featured": false,
-      "published": true
+      "published": true,
+      "contribution": "Designed the product logo and bottle sticker artwork in Adobe Photoshop.",
+      "decisions": "Used Adobe Photoshop to compose the logo and bottle sticker layout."
     },
     {
       "id": "animations",
