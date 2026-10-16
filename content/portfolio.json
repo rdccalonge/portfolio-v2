@@ -3,7 +3,7 @@
   "profile": {
     "name": "Reni Calonge",
     "role": "Full-Stack Developer",
-    "summary": "Full-stack developer with 9+ years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support.",
+    "summary": "Full-stack developer with 10 years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support.",
     "photo": "media/reni-calonge.jpg",
     "location": "Quezon City, Metro Manila, Philippines",
     "email": "rdccalonge@gmail.com",
@@ -14,6 +14,7 @@
     {
       "id": "health-declaration",
       "title": "Health Declaration",
+      "year": "2022",
       "category": "Low-code applications",
       "description": "A health declaration project from my PowerApps collection.",
       "technologies": [
@@ -55,6 +56,7 @@
     {
       "id": "parking-platform",
       "title": "Parking Backend & Admin",
+      "year": "2022",
       "category": "Operations software",
       "description": "A parking backend service and administration GUI from my existing work collection.",
       "technologies": [
@@ -109,6 +111,7 @@
     {
       "id": "insurance-app",
       "title": "Insurance Electronic App",
+      "year": "2022",
       "category": "Business applications",
       "description": "An electronic application project from my C# work collection.",
       "technologies": [
@@ -155,6 +158,7 @@
     {
       "id": "maritime-portal",
       "title": "Maritime Customer Portal",
+      "year": "2021",
       "category": "Business applications",
       "description": "A customer portal project from my C# portfolio.",
       "technologies": [
@@ -193,6 +197,7 @@
     {
       "id": "data-auto-mapper",
       "title": "Data Auto Mapper",
+      "year": "2016",
       "category": "Developer tooling",
       "description": "A data mapping project from my C# portfolio.",
       "technologies": [
@@ -235,6 +240,7 @@
     {
       "id": "ecommerce",
       "title": "E-commerce / Shopping Cart",
+      "year": "2014",
       "category": "Commerce",
       "description": "An e-commerce and shopping cart project from my PHP collection.",
       "technologies": [
