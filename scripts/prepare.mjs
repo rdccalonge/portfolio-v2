@@ -10,6 +10,11 @@ if (assets !== resolve(process.cwd(), '.local', 'site-assets')) throw new Error(
 await rm(assets, { recursive: true, force: true });
 await mkdir(assets, { recursive: true });
 await cp('public/favicon.svg', `${assets}/favicon.svg`);
+// Preserve the former survey URL after merging its content into the mapper project.
+if (data.projects.some(project => project.id === 'data-auto-mapper') && !data.projects.some(project => project.id === 'surveys')) {
+  await mkdir(`${assets}/projects/surveys`, { recursive: true });
+  await writeFile(`${assets}/projects/surveys/index.html`, '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../data-auto-mapper/"><title>Surveys &amp; Data Auto Mapper</title></head><body><a href="../data-auto-mapper/">Continue to Surveys &amp; Data Auto Mapper</a></body></html>');
+}
 const media = new Set([data.profile.photo, ...data.projects.flatMap(p => p.screenshots.map(s => s.src))].filter(Boolean));
 for (const path of media) {
   const source = resolve('public', path);

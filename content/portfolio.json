@@ -218,16 +218,17 @@
     },
     {
       "id": "data-auto-mapper",
-      "title": "Data Auto Mapper",
+      "title": "Surveys & Data Auto Mapper",
       "year": "2016",
       "category": "Developer tooling",
-      "description": "A data mapping project from my C# portfolio.",
+      "description": "A related collection of survey interfaces and a C# data mapping tool.",
       "technologies": [
         "C#"
       ],
       "layers": [
         "Backend",
-        "Database"
+        "Database",
+        "Frontend"
       ],
       "screenshots": [
         {
@@ -253,6 +254,14 @@
         {
           "src": "media/legacy-automap6.png",
           "alt": "Data Auto Mapper — application screenshot 6"
+        },
+        {
+          "src": "media/legacy-document.png",
+          "alt": "Surveys - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-survey.png",
+          "alt": "Surveys - portfolio image 2"
         }
       ],
       "accent": "cyan",
@@ -317,29 +326,6 @@
         {
           "src": "media/legacy-condor3.jpg",
           "alt": "Point of Sale - portfolio image 3"
-        }
-      ],
-      "accent": "cyan",
-      "featured": false,
-      "published": true
-    },
-    {
-      "id": "surveys",
-      "title": "Surveys",
-      "category": "Web applications",
-      "description": "A collection of survey interfaces from my previous portfolio.",
-      "technologies": [],
-      "layers": [
-        "Frontend"
-      ],
-      "screenshots": [
-        {
-          "src": "media/legacy-document.png",
-          "alt": "Surveys - portfolio image 1"
-        },
-        {
-          "src": "media/legacy-survey.png",
-          "alt": "Surveys - portfolio image 2"
         }
       ],
       "accent": "cyan",
