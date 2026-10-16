@@ -30,15 +30,23 @@ test('reduced motion stays readable and CV downloads exist', async ({ page, requ
   const pdf = await request.get('downloads/reni-calonge-cv.pdf'); expect(pdf.status()).toBe(200); expect((await pdf.body()).subarray(0, 4).toString()).toBe('%PDF');
   const word = await request.get('downloads/reni-calonge-cv.docx'); expect(word.status()).toBe(200); expect((await word.body()).subarray(0, 2).toString()).toBe('PK');
 });
-test('CMS layer collection drives system cards and project filters', async ({ page }) => {
+test('CMS categories filter work independently of system layers', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto('./');
+  const categories = [...new Set(content.projects.map((p: any) => p.category).filter(Boolean))] as string[];
+  for (const category of categories) {
+    await page.locator('.filter-tabs').getByRole('button', { name: category, exact: true }).click();
+    await expect(page.locator('.project-card')).toHaveCount(content.projects.filter((p: any) => p.category === category).length);
+  }
+  await page.locator('.filter-tabs').getByRole('button', { name: 'All work', exact: true }).click();
+  await expect(page.locator('.project-card')).toHaveCount(content.projects.length);
   await expect(page.locator('.system-node')).toHaveCount(content.layers.length);
   for (const layer of content.layers) {
-    await expect(page.locator('.systems-map').getByRole('heading', { name: layer.name, exact: true })).toBeVisible();
-    await page.locator('.filter-tabs').getByRole('button', { name: layer.name, exact: true }).click();
-    await expect(page.locator('.project-card')).toHaveCount(content.projects.filter((project: any) => project.layers.includes(layer.name)).length);
+    await page.locator('.systems-map').getByRole('button').filter({ has: page.getByRole('heading', { name: layer.name, exact: true }) }).click();
+    await expect(page.locator('.connected-work a')).toHaveCount(content.projects.filter((p: any) => p.layers.includes(layer.name)).length);
+    await expect(page.locator('.project-card')).toHaveCount(content.projects.length);
   }
 });
+
 test('approved experience and certifications appear on the portfolio', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto('./');
   for (const entry of content.experience) await expect(page.locator('.timeline').getByRole('heading', { name: entry.title, exact: true })).toBeVisible();
