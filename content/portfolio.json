@@ -221,9 +221,15 @@
       "title": "Surveys & Data Auto Mapper",
       "year": "2016",
       "category": "Developer tooling",
-      "description": "A related collection of survey interfaces and a C# data mapping tool.",
+      "description": "Client-facing surveys built with Sawtooth, supported by an in-house ASP.NET MVC tool that converts survey data into JSON for client reporting and analysis.",
       "technologies": [
-        "C#"
+        "C#",
+        "ASP.NET MVC",
+        "Sawtooth",
+        "Perl",
+        "Aspose.Cells",
+        "SQL Server",
+        "Microsoft IIS"
       ],
       "layers": [
         "Backend",
@@ -266,7 +272,11 @@
       ],
       "accent": "cyan",
       "featured": true,
-      "published": true
+      "published": true,
+      "problem": "Clients needed surveys to distribute to their customers and a way to prepare the resulting Sawtooth data for reporting and analysis.",
+      "contribution": "Developed multiple Sawtooth surveys and wrote Perl scripts for survey logic. Built an in-house ASP.NET MVC tool to automate JSON generation from Sawtooth data. Deployed and configured .NET applications in IIS, wrote SQL Server queries and stored procedures, and remotely administered servers to investigate performance and heavy load.",
+      "decisions": "Used Sawtooth with Perl scripts for survey logic and ASP.NET MVC for the internal automation tool. Generated JSON from Sawtooth data for client reporting and analysis, using Aspose.Cells and SQL Server in the workflow. Hosted the .NET applications in Microsoft IIS.",
+      "outcome": "Automated the conversion of Sawtooth data into JSON used by clients for reporting and analysis."
     },
     {
       "id": "ecommerce",
