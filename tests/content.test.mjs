@@ -63,3 +63,8 @@ test('certification defaults, publication, and section selection are validated',
 });
 
 test('optional project year validates four digits', () => { const data = copy(); data.projects[0].year = '2024'; assert.equal(publicContent(data).projects[0].year, '2024'); data.projects[0].year = ''; publicContent(data); delete data.projects[0].year; publicContent(data); data.projects[0].year = '24'; assert.throws(() => publicContent(data)); });
+test('project demo links only allow HTTPS', () => {
+  const data = copy(); data.projects[0].links = [{ label: 'Demo', url: 'https://example.com/demo' }];
+  assert.equal(publicContent(data).projects[0].links[0].label, 'Demo');
+  data.projects[0].links[0].url = 'javascript:alert(1)'; assert.throws(() => publicContent(data));
+});

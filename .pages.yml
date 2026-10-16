@@ -142,6 +142,20 @@ content:
               label: '{fields.name}'
               multiple: true
               min: 1
+          - name: links
+            label: Project demos and links
+            type: object
+            list:
+              max: 10
+            fields:
+              - name: label
+                type: string
+                required: true
+              - name: url
+                label: HTTPS URL
+                type: string
+                required: true
+                pattern: '^https://[^\s]+$'
           - name: screenshots
             label: Approved screenshots
             type: object

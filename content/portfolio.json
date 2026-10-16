@@ -292,6 +292,332 @@
       "contribution": "Served as technical lead for a three-person thesis team, leading technical direction and taking responsibility for the system architecture and interface layout design.",
       "decisions": "Defined the system architecture and designed the application layouts.",
       "outcome": "The project won the Best Thesis award and was adopted and used by the client."
+    },
+    {
+      "id": "point-of-sale",
+      "title": "Point of Sale",
+      "category": "Business applications",
+      "description": "A collection of point-of-sale modules from my VB6 work.",
+      "technologies": [
+        "VB6"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-condor1.jpg",
+          "alt": "Point of Sale - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-condor2.jpg",
+          "alt": "Point of Sale - portfolio image 2"
+        },
+        {
+          "src": "media/legacy-condor3.jpg",
+          "alt": "Point of Sale - portfolio image 3"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "surveys",
+      "title": "Surveys",
+      "category": "Web applications",
+      "description": "A collection of survey interfaces from my previous portfolio.",
+      "technologies": [],
+      "layers": [
+        "Frontend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-document.png",
+          "alt": "Surveys - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-survey.png",
+          "alt": "Surveys - portfolio image 2"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "data-gathering",
+      "title": "Data Gathering Website",
+      "category": "Business applications",
+      "description": "A data gathering and engagement platform with role-based access, SMS campaigns, and reporting dashboards.",
+      "technologies": [
+        "C#",
+        ".NET Core",
+        "Angular",
+        "TypeScript",
+        "Chart.js",
+        "My Busy Bee"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-jti1.jpg",
+          "alt": "Data Gathering Website - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-jti2.jpg",
+          "alt": "Data Gathering Website - portfolio image 2"
+        },
+        {
+          "src": "media/legacy-jti2a.jpg",
+          "alt": "Data Gathering Website - portfolio image 3"
+        },
+        {
+          "src": "media/legacy-jti3.jpg",
+          "alt": "Data Gathering Website - portfolio image 4"
+        },
+        {
+          "src": "media/legacy-jti4.jpg",
+          "alt": "Data Gathering Website - portfolio image 5"
+        },
+        {
+          "src": "media/legacy-jti5.jpg",
+          "alt": "Data Gathering Website - portfolio image 6"
+        },
+        {
+          "src": "media/legacy-jti6.jpg",
+          "alt": "Data Gathering Website - portfolio image 7"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "office-tech-assessment",
+      "title": "Office Tech Assessment",
+      "category": "Business applications",
+      "description": "An office technology assessment platform from my previous portfolio.",
+      "technologies": [
+        "C#"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-procertas1.jpg",
+          "alt": "Office Tech Assessment - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-procertas2.jpg",
+          "alt": "Office Tech Assessment - portfolio image 2"
+        },
+        {
+          "src": "media/legacy-procertas3.jpg",
+          "alt": "Office Tech Assessment - portfolio image 3"
+        },
+        {
+          "src": "media/legacy-procertas4.jpg",
+          "alt": "Office Tech Assessment - portfolio image 4"
+        },
+        {
+          "src": "media/legacy-procertas5.jpg",
+          "alt": "Office Tech Assessment - portfolio image 5"
+        },
+        {
+          "src": "media/legacy-procertas6.jpg",
+          "alt": "Office Tech Assessment - portfolio image 6"
+        },
+        {
+          "src": "media/legacy-procertas7.jpg",
+          "alt": "Office Tech Assessment - portfolio image 7"
+        },
+        {
+          "src": "media/legacy-procertas8.jpg",
+          "alt": "Office Tech Assessment - portfolio image 8"
+        },
+        {
+          "src": "media/legacy-procertas9.jpg",
+          "alt": "Office Tech Assessment - portfolio image 9"
+        },
+        {
+          "src": "media/legacy-procertas10.jpg",
+          "alt": "Office Tech Assessment - portfolio image 10"
+        },
+        {
+          "src": "media/legacy-procertas11.jpg",
+          "alt": "Office Tech Assessment - portfolio image 11"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "inventory-system",
+      "title": "Inventory System",
+      "category": "Operations software",
+      "description": "An E-Kanban inventory system with QR-code generation and scanning, secure authentication, and role-based access.",
+      "technologies": [
+        "C#",
+        "ASP.NET Core",
+        "Razor Pages",
+        "MSAL",
+        "Microsoft Graph",
+        "Azure App Service",
+        "GitHub Actions"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend",
+        "Cloud"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-bayer1.png",
+          "alt": "Inventory System - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-bayer2.png",
+          "alt": "Inventory System - portfolio image 2"
+        },
+        {
+          "src": "media/legacy-bayer4.png",
+          "alt": "Inventory System - portfolio image 3"
+        },
+        {
+          "src": "media/legacy-bayer3.png",
+          "alt": "Inventory System - portfolio image 4"
+        },
+        {
+          "src": "media/legacy-bayer5.png",
+          "alt": "Inventory System - portfolio image 5"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "carwash-design",
+      "title": "Carwash",
+      "category": "Visual design",
+      "description": "Carwash visual design work from my previous portfolio.",
+      "technologies": [],
+      "layers": [
+        "Frontend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-carwash-1.jpg",
+          "alt": "Carwash - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-carwash-2.png",
+          "alt": "Carwash - portfolio image 2"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "water-station-design",
+      "title": "Water Station",
+      "category": "Visual design",
+      "description": "Water station visual design work from my previous portfolio.",
+      "technologies": [],
+      "layers": [
+        "Frontend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-water-1.png",
+          "alt": "Water Station - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-water-2.jpg",
+          "alt": "Water Station - portfolio image 2"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "shrimp-paste-design",
+      "title": "Shrimp Paste",
+      "category": "Visual design",
+      "description": "Shrimp paste visual design work from my previous portfolio.",
+      "technologies": [],
+      "layers": [
+        "Frontend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-shrimp-1.png",
+          "alt": "Shrimp Paste - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-shrimp-2.jpg",
+          "alt": "Shrimp Paste - portfolio image 2"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "animations",
+      "title": "Animations",
+      "category": "Interactive animation",
+      "description": "Interactive animation demos: a slideshow, voice recognition experience, and timeline.",
+      "technologies": [
+        "JavaScript",
+        "GSAP",
+        "HTML5",
+        "CSS"
+      ],
+      "layers": [
+        "Frontend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-bg.jpg",
+          "alt": "Animations - portfolio image 1"
+        },
+        {
+          "src": "media/legacy-snapchat.png",
+          "alt": "Animations - portfolio image 2"
+        },
+        {
+          "src": "media/legacy-vid3.jpg",
+          "alt": "Animations - portfolio image 3"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true,
+      "links": [
+        {
+          "label": "Slideshow",
+          "url": "https://rdccalonge.github.io/portfolio/gsap/deluxe/index.html"
+        },
+        {
+          "label": "Voice recognition",
+          "url": "https://rdccalonge.github.io/portfolio/gsap/echo/index.html"
+        },
+        {
+          "label": "Timeline",
+          "url": "https://rdccalonge.github.io/portfolio/gsap/timeline/index.html"
+        }
+      ]
     }
   ],
   "skills": [
