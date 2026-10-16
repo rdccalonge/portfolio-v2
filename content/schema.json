@@ -64,6 +64,7 @@
         "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80 },
         "title": { "type": "string", "minLength": 1, "maxLength": 160 },
         "category": { "type": "string", "maxLength": 100 },
+        "year": { "type": "string", "pattern": "^([0-9]{4})?$" },
         "description": { "type": "string", "maxLength": 1500 },
         "problem": { "type": "string", "maxLength": 10000 },
         "contribution": { "type": "string", "maxLength": 10000 },

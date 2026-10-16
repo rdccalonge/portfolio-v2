@@ -16,7 +16,7 @@ export type Layer = Portfolio['skills'][number]['layer'];
   </div>` })
 export class ProjectArt { project = input.required<Project>(); assetBase = input(''); }
 @Component({ selector: 'app-project-detail', imports: [ProjectArt], template: `
-  <div class="case-heading"><span class="eyebrow">{{ project().category }}</span><h1>{{ project().title }}</h1><p>{{ project().description }}</p></div>
+  <div class="case-heading"><span class="eyebrow">{{ project().category }}@if(project().year) { · {{ project().year }} }</span><h1>{{ project().title }}</h1><p>{{ project().description }}</p></div>
   @if (!project().screenshots.length) { <app-project-art [project]="project()" /> }
   <div class="case-sections">@for (section of sections(); track section.title) { @if(section.text) { <section><span class="eyebrow">{{ section.title }}</span><p>{{ section.text }}</p></section> } }</div>
   @if (project().technologies.length) { <section class="case-tech-stack" aria-label="Tech stack used"><h2 class="eyebrow">Tech stack used</h2><div class="tags">@for (tech of project().technologies; track tech) { <span>{{ tech }}</span> }</div></section> }

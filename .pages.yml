@@ -100,6 +100,11 @@ content:
             label: Project title
             type: string
             required: true
+          - name: year
+            label: Project year
+            type: string
+            description: 'Optional four-digit year, for example 2024. Leave blank if unknown.'
+            pattern: '^([0-9]{4})?$'
           - name: category
             label: Category
             type: string
@@ -272,5 +277,6 @@ content:
         label: Display order
         type: number
         description: 'Lower numbers appear first. Existing layers use 10, 20, 30, and 40.'
+
 
 

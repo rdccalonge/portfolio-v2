@@ -61,3 +61,5 @@ test('certification defaults, publication, and section selection are validated',
   assert.equal(view.certifications.length, 1); assert.equal(view.certifications[0].url, ''); assert(view.cv.sections.includes('certifications'));
   data.certifications[1].url = 'javascript:alert(1)'; assert.throws(() => publicContent(data));
 });
+
+test('optional project year validates four digits', () => { const data = copy(); data.projects[0].year = '2024'; assert.equal(publicContent(data).projects[0].year, '2024'); data.projects[0].year = ''; publicContent(data); delete data.projects[0].year; publicContent(data); data.projects[0].year = '24'; assert.throws(() => publicContent(data)); });
