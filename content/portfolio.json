@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "profile": {
     "name": "Reni Calonge",
-    "role": "Full-stack developer",
+    "role": "Full-Stack Developer",
     "summary": "Full-stack developer with 9+ years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support.",
     "photo": "media/reni-calonge.jpg",
     "location": "Quezon City, Metro Manila, Philippines",
@@ -49,52 +49,6 @@
         }
       ],
       "accent": "violet",
-      "featured": false,
-      "published": true
-    },
-    {
-      "id": "insurance-app",
-      "title": "Insurance Electronic App",
-      "category": "Business applications",
-      "description": "An electronic application project from my C# work collection.",
-      "technologies": [
-        "C#"
-      ],
-      "layers": [
-        "Frontend",
-        "Backend"
-      ],
-      "screenshots": [
-        {
-          "src": "media/legacy-eapp0.jpg",
-          "alt": "Insurance Electronic App — application screenshot 1"
-        },
-        {
-          "src": "media/legacy-eapp1.jpg",
-          "alt": "Insurance Electronic App — application screenshot 2"
-        },
-        {
-          "src": "media/legacy-eapp2.jpg",
-          "alt": "Insurance Electronic App — application screenshot 3"
-        },
-        {
-          "src": "media/legacy-eapp3.jpg",
-          "alt": "Insurance Electronic App — application screenshot 4"
-        },
-        {
-          "src": "media/legacy-eapp4.jpg",
-          "alt": "Insurance Electronic App — application screenshot 5"
-        },
-        {
-          "src": "media/legacy-eapp5.jpg",
-          "alt": "Insurance Electronic App — application screenshot 6"
-        },
-        {
-          "src": "media/legacy-eapp6.jpg",
-          "alt": "Insurance Electronic App — application screenshot 7"
-        }
-      ],
-      "accent": "orange",
       "featured": false,
       "published": true
     },
@@ -150,6 +104,52 @@
       ],
       "accent": "lime",
       "featured": true,
+      "published": true
+    },
+    {
+      "id": "insurance-app",
+      "title": "Insurance Electronic App",
+      "category": "Business applications",
+      "description": "An electronic application project from my C# work collection.",
+      "technologies": [
+        "C#"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-eapp0.jpg",
+          "alt": "Insurance Electronic App — application screenshot 1"
+        },
+        {
+          "src": "media/legacy-eapp1.jpg",
+          "alt": "Insurance Electronic App — application screenshot 2"
+        },
+        {
+          "src": "media/legacy-eapp2.jpg",
+          "alt": "Insurance Electronic App — application screenshot 3"
+        },
+        {
+          "src": "media/legacy-eapp3.jpg",
+          "alt": "Insurance Electronic App — application screenshot 4"
+        },
+        {
+          "src": "media/legacy-eapp4.jpg",
+          "alt": "Insurance Electronic App — application screenshot 5"
+        },
+        {
+          "src": "media/legacy-eapp5.jpg",
+          "alt": "Insurance Electronic App — application screenshot 6"
+        },
+        {
+          "src": "media/legacy-eapp6.jpg",
+          "alt": "Insurance Electronic App — application screenshot 7"
+        }
+      ],
+      "accent": "orange",
+      "featured": false,
       "published": true
     },
     {
@@ -289,10 +289,6 @@
       "layer": "Backend"
     },
     {
-      "name": "Entity Framework",
-      "layer": "Database"
-    },
-    {
       "name": "SQL Server",
       "layer": "Database"
     },
@@ -306,6 +302,10 @@
     },
     {
       "name": "Dapper",
+      "layer": "ORM"
+    },
+    {
+      "name": "Entity Framework",
       "layer": "ORM"
     },
     {
