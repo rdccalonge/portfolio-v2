@@ -264,7 +264,7 @@
       "title": "E-commerce / Shopping Cart",
       "year": "2014",
       "category": "Commerce",
-      "description": "An e-commerce and shopping cart project from my PHP collection.",
+      "description": "An award-winning e-commerce and shopping cart system developed as a thesis project by a three-person team and adopted by the client.",
       "technologies": [
         "PHP"
       ],
@@ -288,7 +288,10 @@
       ],
       "accent": "cyan",
       "featured": false,
-      "published": true
+      "published": true,
+      "contribution": "Served as technical lead for a three-person thesis team, leading technical direction and taking responsibility for the system architecture and interface layout design.",
+      "decisions": "Defined the system architecture and designed the application layouts.",
+      "outcome": "The project won the Best Thesis award and was adopted and used by the client."
     }
   ],
   "skills": [
