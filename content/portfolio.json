@@ -58,9 +58,19 @@
       "title": "Parking Backend & Admin",
       "year": "2022",
       "category": "Operations software",
-      "description": "A parking backend service and administration GUI from my existing work collection.",
+      "description": "A Switzerland-based parking application with backend services and an Angular administration interface for parking operations.",
       "technologies": [
-        "C#"
+        "C#",
+        ".NET Core",
+        "Angular",
+        "TypeScript",
+        "Azure AD B2C",
+        "Google Pub/Sub",
+        "i18n",
+        "Lokalise",
+        "Twilio SendGrid",
+        "Postman",
+        "Grafana Loki"
       ],
       "layers": [
         "Frontend",
@@ -106,16 +116,20 @@
       ],
       "accent": "lime",
       "featured": true,
-      "published": true
+      "published": true,
+      "contribution": "Maintained and enhanced the .NET Core and Angular application. Implemented Azure AD B2C authentication, background parking processing, and Google Pub/Sub integration for boom barriers. Supported multilingual interfaces with i18n and Lokalise and maintained SendGrid email templates.",
+      "decisions": "Used background services for parking processing and Google Pub/Sub for barrier integration. Added Postman Collection Runner tests and health checks, with service monitoring through Grafana Loki."
     },
     {
       "id": "insurance-app",
       "title": "Insurance Electronic App",
       "year": "2022",
       "category": "Business applications",
-      "description": "An electronic application project from my C# work collection.",
+      "description": "A web-based insurance application that automates agent workflows through dynamic questionnaires and printable PDF applications.",
       "technologies": [
-        "C#"
+        "C#",
+        ".NET Core",
+        "Application Insights"
       ],
       "layers": [
         "Frontend",
@@ -153,16 +167,22 @@
       ],
       "accent": "orange",
       "featured": false,
-      "published": true
+      "published": true,
+      "contribution": "Contributed to dynamic questionnaires and user/question management. Implemented conditional question flow based on earlier responses and answer-to-form mapping for ready-to-submit printable PDF insurance applications.",
+      "decisions": "Applied rule-based conditional logic to questionnaire flow and resolved code issues identified through Application Insights."
     },
     {
       "id": "maritime-portal",
       "title": "Maritime Customer Portal",
       "year": "2021",
       "category": "Business applications",
-      "description": "A customer portal project from my C# portfolio.",
+      "description": "A maritime management portal with secure user access, embedded financial and performance reporting, and automated email notifications.",
       "technologies": [
-        "C#"
+        "C#",
+        "ASP.NET MVC",
+        "ASP.NET Identity",
+        "Power BI",
+        "SMTP Client"
       ],
       "layers": [
         "Frontend",
@@ -192,7 +212,9 @@
       ],
       "accent": "violet",
       "featured": true,
-      "published": true
+      "published": true,
+      "contribution": "Delivered the portal from the ground up using ASP.NET MVC. Implemented authentication and user management with ASP.NET Identity, embedded Power BI reports, and automated notifications with SMTP Client.",
+      "decisions": "Embedded Power BI financial and performance reports in the application so users could view, print, and export insights."
     },
     {
       "id": "data-auto-mapper",
@@ -525,6 +547,70 @@
     {
       "name": "Octopus Deploy",
       "layer": "Cloud"
+    },
+    {
+      "name": "AngularJS",
+      "layer": "Frontend"
+    },
+    {
+      "name": "ASP.NET WebForms",
+      "layer": "Frontend"
+    },
+    {
+      "name": "Module Federation",
+      "layer": "Frontend"
+    },
+    {
+      "name": "Chart.js",
+      "layer": "Frontend"
+    },
+    {
+      "name": "Power BI",
+      "layer": "Frontend"
+    },
+    {
+      "name": "Microsoft Graph",
+      "layer": "Backend"
+    },
+    {
+      "name": "MSAL",
+      "layer": "Backend"
+    },
+    {
+      "name": "SendGrid",
+      "layer": "Backend"
+    },
+    {
+      "name": "BusyBee",
+      "layer": "Backend"
+    },
+    {
+      "name": "Scanii",
+      "layer": "Backend"
+    },
+    {
+      "name": "Data Report",
+      "layer": "Backend"
+    },
+    {
+      "name": "Azure App Service",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Azure Boards",
+      "layer": "Cloud"
+    },
+    {
+      "name": "PGAdmin",
+      "layer": "Cloud"
+    },
+    {
+      "name": "EF Power Tools",
+      "layer": "Cloud"
+    },
+    {
+      "name": "Copilot",
+      "layer": "Cloud"
     }
   ],
   "experience": [
@@ -533,7 +619,7 @@
       "organization": "Smartwave BAV Studios",
       "start": "2024",
       "end": "2025",
-      "details": "Maintained and enhanced a microservice-based e-commerce platform serving multiple countries, including payment integrations.\nDeveloped SOAP and REST APIs with .NET and .NET Core, repository patterns, Dapper, and EF Core; built background services and triggers.\nMigrated legacy .NET Framework projects to .NET Core and databases from AWS EC2 to RDS; optimized queries and addressed API vulnerabilities.\nIntegrated AWS Lambda, SQS, SNS, and EventBridge, plus Azure Event Hub and Service Bus.\nCreated and maintained CI/CD pipelines with TeamCity and Octopus Deploy; monitored production with New Relic.\nCreated internal NuGet packages, shared libraries, and console automation tools; maintained Elasticsearch and the Insider platform.",
+      "details": "Maintained and enhanced a multinational microservice-based e-commerce platform, including OZSALE and NZSALE.\nDeveloped secure SOAP and REST APIs using .NET and .NET Core for web and mobile teams; migrated legacy .NET Framework applications to .NET Core.\nSupported database migrations from AWS EC2 to RDS and performed database optimization and query tuning.\nIntegrated AWS Lambda, SQS, SNS, and EventBridge, plus Azure Event Hub and Service Bus.\nBuilt and maintained TeamCity and Octopus Deploy pipelines; provided production support and monitoring using New Relic.\nMaintained Insider and Elasticsearch integrations, internal NuGet packages and shared libraries, and console automation tools.\nMaintained and enhanced payment gateway integrations with Stripe, Braintree, PayPal, and Afterpay.",
       "published": true
     },
     {
@@ -541,7 +627,7 @@
       "organization": "ERNI Philippines",
       "start": "2021",
       "end": "2024",
-      "details": "Delivered eight enterprise web solutions across marine, insurance, education, transportation, healthcare/pharmaceuticals, renewable energy, retail/e-commerce, and ERP domains.\nDeveloped ASP.NET and ASP.NET Core applications and REST APIs using CQRS and EF Core.\nBuilt Angular/TypeScript and Blazor frontends and mobile applications with Power Apps.\nApplied test-driven development with at least 50% code coverage and created API test automation with Postman.\nIntegrated Azure Blob Storage, Data Factory, and Functions, plus Google Pub/Sub, Kafka, SMS, and email services.\nManaged Azure DevOps and GitLab pipelines; configured Dockerfiles and troubleshot Kubernetes pods.\nSupported WCAG certification and development-process improvements; integrated LaunchDarkly and GraphQL-based authorization with MSAL token refresh.\nMonitored applications with Datadog and Rancher.",
+      "details": "Nursing assessment: maintained a US-based .NET Core and Angular/TypeScript platform; migrated ASP.NET WebForms toward microservices and Angular, and transitioned VM workloads to Kubernetes with Docker.\nIntegrated a chatbot widget and AI prompt/payload/response processing using Kafka; built question types with micro-frontends, Module Federation, and an internal Material UI component library. Implemented LaunchDarkly feature flags with proxy support.\nTroubleshot GitLab CI/CD and Kubernetes, monitored with Datadog and Rancher, managed releases and documentation, exported score reports to PDF and Excel, and handled ServiceNow change and support requests.\nERP: enhanced a Blazor WebAssembly solution with HR and Accounting modules and reusable dynamic components. Integrated Azure Data Factory ingestion into Snowflake, implemented Microsoft Graph role-based authorization, and improved development and CI/CD processes.\nE-Kanban: delivered an ASP.NET Core/Razor Pages inventory system for a Germany-based pharmaceutical company with QR generation/scanning, MSAL token refresh, Microsoft Graph authorization, Azure App Service, and GitHub Actions deployment through Azure Virtual Desktop.\nParking: maintained a Switzerland-based .NET Core and Angular application; implemented Azure AD B2C authentication, parking background processing, Google Pub/Sub barrier integration, i18n/Lokalise, and SendGrid templates. Created Postman Collection Runner tests and health checks and monitored with Grafana Loki.\nLegal assessment: enhanced an ASP.NET MVC platform, worked with a third party toward WCAG certification, secured file handling with Scanii, and integrated Azure Functions for dynamic scoring.\nInsurance: contributed to a .NET Core application with dynamic questionnaires, user/question management, conditional question flow, answer-to-form mapping for printable PDF applications, and remediation of issues identified through Application Insights.\nData gathering and engagement: delivered a .NET Core and Angular platform with role-based access restrictions, My Busy Bee SMS campaigns, and Chart.js reporting dashboards.\nMaritime: delivered an ASP.NET MVC management portal with ASP.NET Identity, embedded Power BI financial/performance reports with print/export functionality, and automated SMTP notifications.",
       "published": true
     },
     {
@@ -549,7 +635,7 @@
       "organization": "Collective Solutions Ph",
       "start": "2016",
       "end": "2021",
-      "details": "Developed and maintained in-house ASP.NET tools and integrations with web services and third-party REST APIs.\nDeployed and configured .NET applications in IIS; administered SQL Server databases, queries, and stored procedures.\nBuilt interfaces with Bootstrap 4 and Angular/TypeScript; remotely administered servers and investigated performance under load.",
+      "details": "Developed and maintained in-house tools using ASP.NET MVC and AngularJS.\nDeveloped Sawtooth surveys with Perl logic scripts.\nDeployed and configured .NET applications in IIS; administered SQL Server queries and stored procedures.\nRemotely administered servers and investigated performance and heavy load.",
       "published": true
     },
     {
@@ -603,7 +689,7 @@
     }
   ],
   "cv": {
-    "summary": "Full-stack developer with 9+ years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support.",
+    "summary": "Full-stack developer with 10 years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support.",
     "sections": [
       "summary",
       "skills",
