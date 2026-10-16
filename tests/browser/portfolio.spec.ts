@@ -78,3 +78,18 @@ test('screenshot gallery supports selection, keyboard viewer and focus restorati
   await expect(opener).toBeFocused();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
 });
+test('gallery autoplay advances, pauses on hover, and respects reduced motion', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === 'mobile', 'Hover interaction is desktop-specific.');
+  await page.clock.install();
+  await page.goto('projects/office-tech-assessment/');
+  const gallery = page.locator('.screenshot-gallery');
+  await gallery.scrollIntoViewIfNeeded(); await page.mouse.move(0, 0);
+  const image = page.locator('.gallery-open img');
+  const first = await image.getAttribute('src');
+  await page.clock.fastForward(5100);
+  await expect(image).not.toHaveAttribute('src', first!);
+  await gallery.hover(); const paused = await image.getAttribute('src');
+  await page.clock.fastForward(5100); await expect(image).toHaveAttribute('src', paused!);
+  await page.mouse.move(0, 0); await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.clock.fastForward(5100); await expect(image).toHaveAttribute('src', paused!);
+});

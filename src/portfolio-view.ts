@@ -1,4 +1,4 @@
-import { Component, input, signal, computed } from '@angular/core';
+import { Component, input, signal, computed, afterNextRender, ElementRef, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { HeroScene } from './hero';
@@ -23,13 +23,13 @@ export class ProjectArt { project = input.required<Project>(); assetBase = input
   @if (project().technologies.length) { <section class="case-tech-stack" aria-label="Tech stack used"><h2 class="eyebrow">Tech stack used</h2><div class="tags">@for (tech of project().technologies; track tech) { <span>{{ tech }}</span> }</div></section> }
   @if (project().screenshots.length) {
     <section class="screenshot-gallery" aria-label="Project screenshots">
-      <div class="gallery-heading"><span class="eyebrow">Inside the project</span><span aria-live="polite">{{ selected() + 1 }} / {{ project().screenshots.length }}</span></div>
+      <div class="gallery-heading"><span class="eyebrow">Inside the project</span><span>{{ selected() + 1 }} / {{ project().screenshots.length }}</span></div>
       <figure class="gallery-frame">
         <div class="gallery-toolbar" aria-hidden="true"><i></i><i></i><i></i><span>{{ project().title }}</span></div>
         <button class="gallery-open" aria-label="Open screenshot full screen" (click)="viewer.showModal()" (touchstart)="touchStart($event)" (touchend)="touchEnd($event)"><img [src]="assetBase() + active().src" [alt]="active().alt" (load)="classify($event)"><span>↗ View full screen</span></button>
         <figcaption>{{ active().alt }}</figcaption>
       </figure>
-      <div class="gallery-controls"><button aria-label="Previous screenshot" (click)="move(-1)">←</button><p>Select a screen to explore</p><button aria-label="Next screenshot" (click)="move(1)">→</button></div>
+      <div class="gallery-controls"><button aria-label="Previous screenshot" (click)="move(-1)">←</button><button class="gallery-autoplay" [attr.aria-pressed]="autoplay()" (click)="autoplay.set(!autoplay())">{{ autoplay() ? 'Pause slideshow' : 'Play slideshow' }}</button><button aria-label="Next screenshot" (click)="move(1)">→</button></div>
       <div class="gallery-thumbnails">@for (shot of project().screenshots; track shot.src; let i = $index) { <button [attr.aria-label]="'Show screenshot ' + (i + 1)" [attr.aria-pressed]="selected() === i" (click)="selected.set(i)"><img [src]="assetBase() + shot.src" alt="" loading="lazy"><span>{{ i + 1 }}</span></button> }</div>
     </section>
     <dialog #viewer class="screenshot-viewer" aria-label="Screenshot viewer" (keydown.arrowleft)="move(-1); $event.preventDefault()" (keydown.arrowright)="move(1); $event.preventDefault()">
@@ -39,11 +39,28 @@ export class ProjectArt { project = input.required<Project>(); assetBase = input
     </dialog>
   }
 ` })
-export class ProjectDetail {
+export class ProjectDetail implements OnDestroy {
+  autoplay = signal(true);
+  private timer?: ReturnType<typeof setInterval>;
+  constructor(private host: ElementRef<HTMLElement>) {
+    afterNextRender(() => {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) this.autoplay.set(false);
+      this.timer = setInterval(() => {
+        const root = this.host.nativeElement;
+        const gallery = root.querySelector<HTMLElement>('.screenshot-gallery');
+        if (!gallery || !this.autoplay() || document.hidden || this.motionPaused() || gallery.matches(':hover, :focus-within') || root.querySelector('dialog[open]')) return;
+        const rect = gallery.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < innerHeight) this.move(1);
+      }, 5000);
+    });
+  }
+  private motionPaused() { return matchMedia('(prefers-reduced-motion: reduce)').matches || document.querySelector('[data-motion="paused"]') !== null; }
+  ngOnDestroy() { if (this.timer) clearInterval(this.timer); }
+
   project = input.required<Project>(); assetBase = input('');
   selected = signal(0);
   active = computed(() => this.project().screenshots[this.selected()] ?? this.project().screenshots[0]);
-  classify(event: Event) { const image = event.target as HTMLImageElement; image.classList.toggle('portrait-shot', image.naturalHeight > image.naturalWidth * 1.3); }
+  classify(event: Event) { const image = event.target as HTMLImageElement; image.classList.toggle('portrait-shot', image.naturalHeight > image.naturalWidth * 1.3); if (!this.motionPaused()) image.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 500, easing: 'ease-out' }); }
   private startX = 0;
   move(direction: number) { const count = this.project().screenshots.length; if (count) this.selected.update(index => (index + direction + count) % count); }
   touchStart(event: TouchEvent) { this.startX = event.changedTouches[0].clientX; }
