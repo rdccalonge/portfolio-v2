@@ -5,10 +5,10 @@
     "role": "Full-stack developer",
     "summary": "Full-stack developer with 9+ years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support.",
     "photo": "media/reni-calonge.jpg",
+    "location": "Quezon City, Metro Manila, Philippines",
     "email": "rdccalonge@gmail.com",
     "github": "https://github.com/rdccalonge",
-    "linkedin": "https://www.linkedin.com/in/reni-calonge-924457160/",
-    "location": "Quezon City, Metro Manila, Philippines"
+    "linkedin": "https://www.linkedin.com/in/reni-calonge-924457160/"
   },
   "projects": [
     {
@@ -22,13 +22,6 @@
       "layers": [
         "Frontend"
       ],
-      "accent": "violet",
-      "featured": false,
-      "published": true,
-      "problem": "",
-      "contribution": "",
-      "decisions": "",
-      "outcome": "",
       "screenshots": [
         {
           "src": "media/legacy-powerapp-1.png",
@@ -54,41 +47,10 @@
           "src": "media/legacy-powerapp-6.png",
           "alt": "Health Declaration — application screenshot 6"
         }
-      ]
-    },
-    {
-      "id": "ecommerce",
-      "title": "E-commerce / Shopping Cart",
-      "category": "Commerce",
-      "description": "An e-commerce and shopping cart project from my PHP collection.",
-      "technologies": [
-        "PHP"
       ],
-      "layers": [
-        "Frontend",
-        "Backend"
-      ],
-      "accent": "cyan",
+      "accent": "violet",
       "featured": false,
-      "published": true,
-      "problem": "",
-      "contribution": "",
-      "decisions": "",
-      "outcome": "",
-      "screenshots": [
-        {
-          "src": "media/legacy-thesis1.jpg",
-          "alt": "E-commerce / Shopping Cart — application screenshot 1"
-        },
-        {
-          "src": "media/legacy-thesis2.jpg",
-          "alt": "E-commerce / Shopping Cart — application screenshot 2"
-        },
-        {
-          "src": "media/legacy-thesis3.jpg",
-          "alt": "E-commerce / Shopping Cart — application screenshot 3"
-        }
-      ]
+      "published": true
     },
     {
       "id": "insurance-app",
@@ -102,13 +64,6 @@
         "Frontend",
         "Backend"
       ],
-      "accent": "orange",
-      "featured": false,
-      "published": true,
-      "problem": "",
-      "contribution": "",
-      "decisions": "",
-      "outcome": "",
       "screenshots": [
         {
           "src": "media/legacy-eapp0.jpg",
@@ -138,7 +93,10 @@
           "src": "media/legacy-eapp6.jpg",
           "alt": "Insurance Electronic App — application screenshot 7"
         }
-      ]
+      ],
+      "accent": "orange",
+      "featured": false,
+      "published": true
     },
     {
       "id": "parking-platform",
@@ -152,13 +110,6 @@
         "Frontend",
         "Backend"
       ],
-      "accent": "lime",
-      "featured": true,
-      "published": true,
-      "problem": "",
-      "contribution": "",
-      "decisions": "",
-      "outcome": "",
       "screenshots": [
         {
           "src": "media/legacy-parking8.jpg",
@@ -196,7 +147,10 @@
           "src": "media/legacy-parking7.jpg",
           "alt": "Parking Backend & Admin — application screenshot 9"
         }
-      ]
+      ],
+      "accent": "lime",
+      "featured": true,
+      "published": true
     },
     {
       "id": "maritime-portal",
@@ -210,13 +164,6 @@
         "Frontend",
         "Backend"
       ],
-      "accent": "violet",
-      "featured": true,
-      "published": true,
-      "problem": "",
-      "contribution": "",
-      "decisions": "",
-      "outcome": "",
       "screenshots": [
         {
           "src": "media/legacy-osm1.jpg",
@@ -238,7 +185,10 @@
           "src": "media/legacy-osm5.jpg",
           "alt": "Maritime Customer Portal — application screenshot 5"
         }
-      ]
+      ],
+      "accent": "violet",
+      "featured": true,
+      "published": true
     },
     {
       "id": "data-auto-mapper",
@@ -252,13 +202,6 @@
         "Backend",
         "Database"
       ],
-      "accent": "cyan",
-      "featured": true,
-      "published": true,
-      "problem": "",
-      "contribution": "",
-      "decisions": "",
-      "outcome": "",
       "screenshots": [
         {
           "src": "media/legacy-automap1.png",
@@ -284,7 +227,40 @@
           "src": "media/legacy-automap6.png",
           "alt": "Data Auto Mapper — application screenshot 6"
         }
-      ]
+      ],
+      "accent": "cyan",
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-commerce / Shopping Cart",
+      "category": "Commerce",
+      "description": "An e-commerce and shopping cart project from my PHP collection.",
+      "technologies": [
+        "PHP"
+      ],
+      "layers": [
+        "Frontend",
+        "Backend"
+      ],
+      "screenshots": [
+        {
+          "src": "media/legacy-thesis1.jpg",
+          "alt": "E-commerce / Shopping Cart — application screenshot 1"
+        },
+        {
+          "src": "media/legacy-thesis2.jpg",
+          "alt": "E-commerce / Shopping Cart — application screenshot 2"
+        },
+        {
+          "src": "media/legacy-thesis3.jpg",
+          "alt": "E-commerce / Shopping Cart — application screenshot 3"
+        }
+      ],
+      "accent": "cyan",
+      "featured": false,
+      "published": true
     }
   ],
   "skills": [
@@ -545,32 +521,6 @@
       "layer": "Cloud"
     }
   ],
-  "education": [
-    {
-      "title": "Bachelor of Science in Information Technology",
-      "organization": "Trinity University of Asia",
-      "published": true,
-      "start": "2011",
-      "end": "2015",
-      "details": ""
-    }
-  ],
-  "cv": {
-    "sections": [
-      "summary",
-      "skills",
-      "experience",
-      "education",
-      "certifications",
-      "projects"
-    ],
-    "projectIds": [
-      "data-auto-mapper",
-      "maritime-portal",
-      "parking-platform"
-    ],
-    "summary": "Full-stack developer with 9+ years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support."
-  },
   "experience": [
     {
       "title": "Senior Backend Engineer",
@@ -629,13 +579,37 @@
       "published": true
     }
   ],
+  "education": [
+    {
+      "title": "Bachelor of Science in Information Technology",
+      "organization": "Trinity University of Asia",
+      "start": "2011",
+      "end": "2015",
+      "published": true
+    }
+  ],
   "certifications": [
     {
       "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
       "issuer": "Microsoft",
-      "issued": "",
       "url": "https://www.credly.com/badges/73b04a1e-f50f-45ea-9dfa-30f8fd022ba4/public_url",
       "published": true
     }
-  ]
+  ],
+  "cv": {
+    "summary": "Full-stack developer with 9+ years of experience in .NET applications, frontend development, cloud integrations, and database optimization. I work across C#, Angular, Blazor, SQL, Azure, and AWS, with experience in Agile delivery, clean architecture, system migrations, and production support.",
+    "sections": [
+      "summary",
+      "skills",
+      "experience",
+      "education",
+      "certifications",
+      "projects"
+    ],
+    "projectIds": [
+      "data-auto-mapper",
+      "maritime-portal",
+      "parking-platform"
+    ]
+  }
 }
